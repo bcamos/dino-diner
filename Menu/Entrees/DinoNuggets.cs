@@ -1,19 +1,29 @@
-﻿using System.Collection.Generic;
+﻿/**
+ * DinoNuggets.cs
+ * Author: Ben Amos
+ */
+using System.Collections.Generic;
 
+/// <summary>
+/// Class DinoNuggets represents the menu item Dino Nuggets. Per request the customer may add additional nuggets
+/// from the default of 6 for an extra 25 cents.
+/// </summary>
 public class DinoNuggets
 {
-    private int nuggets = 6;
+    private int nuggets = 6; // The number of nuggets
 
+    // The total calories of nuggets
     public uint Calories
     {
         get
         {
-            return nuggets * 59;
+            return (uint) nuggets * 59;
         }
     }
 
-    public double Price {get; set;}
+    public double Price {get; set;} // The price of the nuggets
 
+    // A list containing all the ingredients of Dino Nuggets
     public List<string> Ingredients
     {
         get
@@ -27,15 +37,21 @@ public class DinoNuggets
         }
     }
     
+    /// <summary>
+    /// Default constructor which initializes price
+    /// </summary>
 	public DinoNuggets()
 	{       
         Price = 4.25;
     }
 
+    /// <summary>
+    /// Add a nugget to an order of Dino Nuggets
+    /// </summary>
     public void AddNugget()
     {
         nuggets++;
         Price += .25;
     }
     
-}
+} // end class DinoNuggets
