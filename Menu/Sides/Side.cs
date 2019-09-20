@@ -27,7 +27,7 @@ namespace DinoDiner.Menu.Sides
         /// <summary>
         /// Gets the ingredients list
         /// </summary>
-        protected List<string> Ingredients = new list<string>();
+        protected List<string> Ingredients;
 
         /// <summary>
         /// Gets or sets the size
