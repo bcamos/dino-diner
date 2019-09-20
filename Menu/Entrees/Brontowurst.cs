@@ -8,14 +8,11 @@ using System.Collections.Generic;
 /// Class Brontowurst represents the brontowurst menu item. 
 /// Per request if the customer chooses, the bun, peppers, and onion can be removed.
 /// </summary>
-public class Brontowurst
+public class Brontowurst : Entree
 {
     private bool bun = true; // Whether the bun is included
     private bool peppers = true; // Whether peppers are included
     private bool onions = true; // Whether onions are included
-
-    public double Price { get; set; } // Selling price of the brontowurst
-    public uint Calories { get; set; } // Total calories of the brontowurst
 
     // A list of all ingredients in the brontowurst
     public List<string> Ingredients

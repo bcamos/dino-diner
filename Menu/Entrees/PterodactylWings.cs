@@ -7,10 +7,8 @@ using System.Collections.Generic;
 /// <summary>
 /// Class PterodactylWings represents the menu item Pterodactyl Wings.
 /// </summary>
-public class PterodactylWings
+public class PterodactylWings : Entree
 {
-    public double Price { get; set; } // The price of the wings
-    public uint Calories { get; set; } // The total calories of the wings
 
     // A list containing all the ingredients of the wings
     public List<string> Ingredients

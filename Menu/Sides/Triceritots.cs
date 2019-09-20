@@ -1,9 +1,18 @@
-﻿using System;
+﻿/** Triceritots.cs
+ * Author: Ben Amos
+ */
+using System.Collections.Generic;
 
+/// <summary>
+/// Class triceritots represents the side and menu item triceritots
+/// </summary>
 public class Triceritots : Side
 {
     private Size size;
 
+    /// <summary>
+    /// The size ordered
+    /// </summary>
     public override Size Size {
         set{
             size = value;
@@ -28,12 +37,14 @@ public class Triceritots : Side
         }
     }
 
+    /// <summary>
+    /// Default constructor sets price, calories, and ingredients
+    /// </summary>
+    /// <param name="size"></param>
 	public Triceritots(Size size)
 	{
         Price = .99;
         Calories = 352;
-        Ingredients.Add("Potato");
-        Ingredients.Add("Breading");
-        Ingredients.Add("Vegetable Oil");
+        Ingredients = new List<string>() { "Potato", "Breading", "Vegetable Oil" };
 	}
 }

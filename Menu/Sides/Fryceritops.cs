@@ -1,10 +1,19 @@
-﻿using System;
+﻿/** Fryceritops.cs
+ * Author: Ben Amos
+ */
+using System;
 using System.Collections.Generic;
 
+/// <summary>
+/// Class Fryceritops represents the side and menu item Fryceritops
+/// </summary>
 public class Fryceritops : Side
 {
     private Size size; 
 
+    /// <summary>
+    /// The size that was ordered
+    /// </summary>
     public override Size Size
     {
         set
@@ -31,10 +40,13 @@ public class Fryceritops : Side
         }
     }
 
+    /// <summary>
+    /// Default constructor initializes price, calories, and ingredients
+    /// </summary>
 	public Fryceritops() 
 	{
         Price = 0.99;
         Calories = 420;
-        Ingredients = new List<string>() { "potatoes", "salt", "vegtable oil" };
+        Ingredients = new List<string>() { "Potato", "Salt", "Vegtable Oil" };
 	}
 }

@@ -8,15 +8,12 @@ using System.Collections.Generic;
 /// Class SteakosaurusBurger represents the menu item a SteakosaurusBurger. 
 /// Per request by the customer, the bun, pickles, kethcup and mustard may be removed.
 /// </summary>
-public class SteakosaurusBurger
+public class SteakosaurusBurger : Entree
 {
     private bool bun = true; // Whether the bun is included
     private bool pickle = true; // Whether pickles are included
     private bool ketchup = true; // Whether ketchup is included
     private bool mustard = true; // Whether mustard is included
-
-    public double Price { get; set; } // The selling price of the Steakosaurus Burger
-    public uint Calories { get; set; } // The total calories of the Steakosaurus Burger
 
     // A list containing all the ingredients in the Steakosaurus Burger
     public List<string> Ingredients

@@ -8,20 +8,20 @@ using System.Collections.Generic;
 /// Class DinoNuggets represents the menu item Dino Nuggets. Per request the customer may add additional nuggets
 /// from the default of 6 for an extra 25 cents.
 /// </summary>
-public class DinoNuggets
+public class DinoNuggets : Entree
 {
     private int nuggets = 6; // The number of nuggets
 
-    // The total calories of nuggets
-    public uint Calories
+    /// <summary>
+    /// The total calories of the nuggets
+    /// </summary>
+    public override uint Calories
     {
         get
         {
             return (uint) nuggets * 59;
         }
     }
-
-    public double Price {get; set;} // The price of the nuggets
 
     // A list containing all the ingredients of Dino Nuggets
     public List<string> Ingredients

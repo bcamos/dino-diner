@@ -8,14 +8,11 @@ using System.Collections.Generic;
 /// Class VelociWrap represent the menu item Veloci Wrap.
 /// Per request by the customer, the dressing, lettuce, and cheese can be removed
 /// </summary>
-public class VelociWrap
+public class VelociWrap : Entree
 {
     private bool dressing = true; // Whether the dressing is included
     private bool lettuce = true; // Whether the lettuce is included
     private bool cheese = true; // Whether cheese is included
-
-    public double Price { get; set; } // The selling price of the Veloci Wrap
-    public uint Calories { get; set; } // The total calories of the Veloci Wrap
 
     // A list containing all the ingredients for the Veloci Wrap.
     public List<string> Ingredients

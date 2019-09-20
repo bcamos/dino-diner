@@ -8,7 +8,7 @@ using System.Collections.Generic;
 /// Class TRexKingBurger represents the menu item a T-Rex King Burger.
 /// Per request by the customer, the bun, lettuce, tomato, onion, pickles, ketchup, mustard, and mayo can be removed.
 /// </summary>
-public class TRexKingBurger
+public class TRexKingBurger : Entree
 {
     private bool bun = true; // Whether the bun is included
     private bool lettuce = true; // Whether the lettuce is included
@@ -18,9 +18,6 @@ public class TRexKingBurger
     private bool ketchup = true; // Whether ketchup is included
     private bool mustard = true; // Whether mustard is included
     private bool mayo = true; // Whether mayo is included
-
-    public double Price { get; set; } // The selling price of the T-Rex King Burger
-    public uint Calories { get; set; } // The total calories of the T-Rex King Burger
 
     // A list containing all the ingredients of the T-Rex King Burger
     public List<string> Ingredients
