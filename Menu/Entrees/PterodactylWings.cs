@@ -11,7 +11,7 @@ public class PterodactylWings : Entree
 {
 
     // A list containing all the ingredients of the wings
-    public List<string> Ingredients
+    public override List<string> Ingredients
     {
         get
         {

@@ -16,11 +16,11 @@ public abstract class Entree
     /// <summary>
     /// The calories of the entree
     /// </summary>
-    public uint Calories { get; set; }
+    public virtual uint Calories { get; set; }
 
     /// <summary>
     /// The ingredients of the entree
     /// </summary>
-    protected List<string> Ingredients { get; protected set; }
+    public abstract List<string> Ingredients { get; }
 
 }

@@ -1,7 +1,7 @@
 ﻿/** Fryceritops.cs
  * Author: Ben Amos
  */
-using System;
+using DinoDiner.Menu.Sides;
 using System.Collections.Generic;
 
 /// <summary>
@@ -32,6 +32,7 @@ public class Fryceritops : Side
                 case Size.Large:
                     Price = 1.95;
                     Calories = 480;
+                    break;
             }
         }
         get

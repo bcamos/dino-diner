@@ -24,7 +24,7 @@ public class DinoNuggets : Entree
     }
 
     // A list containing all the ingredients of Dino Nuggets
-    public List<string> Ingredients
+    public override List<string> Ingredients
     {
         get
         {

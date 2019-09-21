@@ -20,7 +20,7 @@ public class TRexKingBurger : Entree
     private bool mayo = true; // Whether mayo is included
 
     // A list containing all the ingredients of the T-Rex King Burger
-    public List<string> Ingredients
+    public override List<string> Ingredients
     {
         get
         {

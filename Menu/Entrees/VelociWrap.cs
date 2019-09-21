@@ -15,7 +15,7 @@ public class VelociWrap : Entree
     private bool cheese = true; // Whether cheese is included
 
     // A list containing all the ingredients for the Veloci Wrap.
-    public List<string> Ingredients
+    public override List<string> Ingredients
     {
         get
         {

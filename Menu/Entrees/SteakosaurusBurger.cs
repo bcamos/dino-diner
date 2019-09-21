@@ -16,7 +16,7 @@ public class SteakosaurusBurger : Entree
     private bool mustard = true; // Whether mustard is included
 
     // A list containing all the ingredients in the Steakosaurus Burger
-    public List<string> Ingredients
+    public override List<string> Ingredients
     {
         get
         {

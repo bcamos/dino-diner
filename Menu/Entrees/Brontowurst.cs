@@ -15,7 +15,7 @@ public class Brontowurst : Entree
     private bool onions = true; // Whether onions are included
 
     // A list of all ingredients in the brontowurst
-    public List<string> Ingredients
+    public override List<string> Ingredients
     {
         get
         {

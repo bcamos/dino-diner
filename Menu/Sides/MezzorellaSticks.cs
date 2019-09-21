@@ -2,6 +2,7 @@
  * Author: Ben Amos
  */
 using System.Collections.Generic;
+using DinoDiner.Menu.Sides;
 
 /// <summary>
 /// Class MezzorellaSticks represents the side and menu item Mezzorella Sticks

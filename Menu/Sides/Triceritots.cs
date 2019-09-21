@@ -2,6 +2,7 @@
  * Author: Ben Amos
  */
 using System.Collections.Generic;
+using DinoDiner.Menu.Sides;
 
 /// <summary>
 /// Class triceritots represents the side and menu item triceritots
@@ -29,6 +30,7 @@ public class Triceritots : Side
                 case Size.Large:
                     Price = 1.95;
                     Calories = 590;
+                    break;
             }
         }
         get
