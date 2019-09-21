@@ -14,7 +14,9 @@ public class VelociWrap : Entree
     private bool lettuce = true; // Whether the lettuce is included
     private bool cheese = true; // Whether cheese is included
 
-    // A list containing all the ingredients for the Veloci Wrap.
+    /// <summary>
+    /// A list containing all the ingredients for the Veloci Wrap.
+    /// </summary>
     public override List<string> Ingredients
     {
         get

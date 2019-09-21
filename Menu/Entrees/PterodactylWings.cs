@@ -10,7 +10,9 @@ using System.Collections.Generic;
 public class PterodactylWings : Entree
 {
 
-    // A list containing all the ingredients of the wings
+    /// <summary>
+    /// A list containing all the ingredients of the wings
+    /// </summary>
     public override List<string> Ingredients
     {
         get

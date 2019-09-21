@@ -48,6 +48,6 @@ public class MezzorellaSticks : Side
 	{
         Price = 0.99;
         Calories = 540;
-        Ingredients = new List<string>() { "Cheese Product", "Breading", "Vegtable Oil" };
+        Ingredients = new List<string>() { "Cheese Product", "Breading", "Vegetable Oil" };
     }
 }

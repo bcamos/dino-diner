@@ -23,7 +23,7 @@ public class Fryceritops : Side
             {
                 case Size.Small:
                     Price = 0.99;
-                    Calories = 420;
+                    Calories = 222;
                     break;
                 case Size.Medium:
                     Price = 1.45;
@@ -47,7 +47,7 @@ public class Fryceritops : Side
 	public Fryceritops() 
 	{
         Price = 0.99;
-        Calories = 420;
-        Ingredients = new List<string>() { "Potato", "Salt", "Vegtable Oil" };
+        Calories = 222;
+        Ingredients = new List<string>() { "Potato", "Salt", "Vegetable Oil" };
 	}
 }

@@ -19,7 +19,9 @@ public class TRexKingBurger : Entree
     private bool mustard = true; // Whether mustard is included
     private bool mayo = true; // Whether mayo is included
 
-    // A list containing all the ingredients of the T-Rex King Burger
+    /// <summary>
+    /// A list containing all the ingredients of the T-Rex King Burger
+    /// </summary>
     public override List<string> Ingredients
     {
         get

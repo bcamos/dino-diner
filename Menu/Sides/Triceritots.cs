@@ -43,10 +43,10 @@ public class Triceritots : Side
     /// Default constructor sets price, calories, and ingredients
     /// </summary>
     /// <param name="size"></param>
-	public Triceritots(Size size)
+	public Triceritots()
 	{
         Price = .99;
         Calories = 352;
-        Ingredients = new List<string>() { "Potato", "Breading", "Vegetable Oil" };
+        Ingredients = new List<string>() { "Potato", "Salt", "Vegetable Oil" };
 	}
 }
