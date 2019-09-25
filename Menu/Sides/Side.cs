@@ -4,20 +4,10 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using DinoDiner.Menu;
 
 namespace DinoDiner.Menu.Sides
-{
-
-    /// <summary>
-    /// Defines three possible sizes for all sides, small, medium and large
-    /// </summary>
-    public enum Size
-    {
-        Small,
-        Medium, 
-        Large
-    }
-
+{   
     /// <summary>
     /// Abstract class that represents a menu item that is a side
     /// </summary>

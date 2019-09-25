@@ -3,6 +3,7 @@
  */
 using System.Collections.Generic;
 using DinoDiner.Menu.Sides;
+using DinoDiner.Menu;
 
 /// <summary>
 /// Class MeteorMacAndCheese represents the side and menu item Meteor Mac And Cheese

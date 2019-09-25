@@ -3,6 +3,7 @@
  */
 using System.Collections.Generic;
 using DinoDiner.Menu.Sides;
+using DinoDiner.Menu;
 
 /// <summary>
 /// Class triceritots represents the side and menu item triceritots

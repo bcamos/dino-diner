@@ -3,6 +3,7 @@
  */
 using DinoDiner.Menu.Sides;
 using System.Collections.Generic;
+using DinoDiner.Menu;
 
 /// <summary>
 /// Class Fryceritops represents the side and menu item Fryceritops
