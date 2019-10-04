@@ -3,7 +3,7 @@
  */
 using System.Collections.Generic;
 
-namespace DinoDiner.Menu.Entrees
+namespace DinoDiner.Menu
 {
     /// <summary>
     /// Class PrehistoricPBJ represents the menu item Prehistoric Peanut Butter and Jelly sandwich.

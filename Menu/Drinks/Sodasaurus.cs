@@ -4,9 +4,8 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using DinoDiner.Menu;
 
-namespace DinoDiner.Menu.Drinks
+namespace DinoDiner.Menu
 {
     /// <summary>
     /// Class Sodasaurus represents the menu a item a sodasaurus which is a soda
