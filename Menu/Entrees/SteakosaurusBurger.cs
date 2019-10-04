@@ -10,7 +10,7 @@ namespace DinoDiner.Menu
     /// Class SteakosaurusBurger represents the menu item a SteakosaurusBurger. 
     /// Per request by the customer, the bun, pickles, kethcup and mustard may be removed.
     /// </summary>
-    public class SteakosaurusBurger : Entree
+    public class SteakosaurusBurger : Entree, IMenuItem
     {
         private bool bun = true; // Whether the bun is included
         private bool pickle = true; // Whether pickles are included

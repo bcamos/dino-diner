@@ -10,7 +10,7 @@ namespace DinoDiner.Menu
     /// <summary>
     /// Abstract class that represents a menu item that is a side
     /// </summary>
-    public abstract class Side
+    public abstract class Side : IMenuItem
     {
         /// <summary>
         /// Gets and sets the price

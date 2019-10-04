@@ -10,7 +10,7 @@ namespace DinoDiner.Menu
     /// Class DinoNuggets represents the menu item Dino Nuggets. Per request the customer may add additional nuggets
     /// from the default of 6 for an extra 25 cents.
     /// </summary>
-    public class DinoNuggets : Entree
+    public class DinoNuggets : Entree, IMenuItem
     {
         private int nuggets = 6; // The number of nuggets
 

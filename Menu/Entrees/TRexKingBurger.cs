@@ -10,7 +10,7 @@ namespace DinoDiner.Menu
     /// Class TRexKingBurger represents the menu item a T-Rex King Burger.
     /// Per request by the customer, the bun, lettuce, tomato, onion, pickles, ketchup, mustard, and mayo can be removed.
     /// </summary>
-    public class TRexKingBurger : Entree
+    public class TRexKingBurger : Entree, IMenuItem
     {
         private bool bun = true; // Whether the bun is included
         private bool lettuce = true; // Whether the lettuce is included

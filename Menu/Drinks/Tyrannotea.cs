@@ -10,7 +10,7 @@ namespace DinoDiner.Menu
     /// <summary>
     /// Class Tyrannotea represents the menu item tyronnotea which is tea
     /// </summary>
-    public class Tyrannotea : Drink
+    public class Tyrannotea : Drink, IMenuItem
     {
         private Size size;
         private bool sweet;

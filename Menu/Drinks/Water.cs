@@ -10,7 +10,7 @@ namespace DinoDiner.Menu
     /// <summary>
     /// Class water represents the menu item water
     /// </summary>
-    public class Water : Drink
+    public class Water : Drink, IMenuItem
     {
         /// <summary>
         /// Whether a lemon is included on the glass of water

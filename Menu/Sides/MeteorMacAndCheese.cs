@@ -8,7 +8,7 @@ namespace DinoDiner.Menu
     /// <summary>
     /// Class MeteorMacAndCheese represents the side and menu item Meteor Mac And Cheese
     /// </summary>
-    public class MeteorMacAndCheese : Side
+    public class MeteorMacAndCheese : Side, IMenuItem
     {
         private Size size;
 

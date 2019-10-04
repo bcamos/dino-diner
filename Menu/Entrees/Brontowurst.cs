@@ -10,7 +10,7 @@ namespace DinoDiner.Menu
     /// Class Brontowurst represents the brontowurst menu item. 
     /// Per request if the customer chooses, the bun, peppers, and onion can be removed.
     /// </summary>
-    public class Brontowurst : Entree
+    public class Brontowurst : Entree, IMenuItem
     {
         private bool bun = true; // Whether the bun is included
         private bool peppers = true; // Whether peppers are included

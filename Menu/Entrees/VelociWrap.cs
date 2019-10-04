@@ -10,7 +10,7 @@ namespace DinoDiner.Menu
     /// Class VelociWrap represent the menu item Veloci Wrap.
     /// Per request by the customer, the dressing, lettuce, and cheese can be removed
     /// </summary>
-    public class VelociWrap : Entree
+    public class VelociWrap : Entree, IMenuItem
     {
         private bool dressing = true; // Whether the dressing is included
         private bool lettuce = true; // Whether the lettuce is included

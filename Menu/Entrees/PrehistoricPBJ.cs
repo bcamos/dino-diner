@@ -8,7 +8,7 @@ namespace DinoDiner.Menu
     /// <summary>
     /// Class PrehistoricPBJ represents the menu item Prehistoric Peanut Butter and Jelly sandwich.
     /// </summary>
-    public class PrehistoricPBJ : Entree
+    public class PrehistoricPBJ : Entree, IMenuItem
     {
         private bool peanutButter = true;
         private bool jelly = true;

@@ -10,7 +10,7 @@ namespace DinoDiner.Menu
     /// <summary>
     /// Class Sodasaurus represents the menu a item a sodasaurus which is a soda
     /// </summary>
-    public class Sodasaurus : Drink
+    public class Sodasaurus : Drink, IMenuItem
     {
         private Size size;
 

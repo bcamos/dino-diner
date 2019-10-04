@@ -8,7 +8,7 @@ namespace DinoDiner.Menu
     /// <summary>
     /// Abstract class to represent an entree
     /// </summary>
-    public abstract class Entree
+    public abstract class Entree : IMenuItem
     {
         /// <summary>
         /// The price of the entree

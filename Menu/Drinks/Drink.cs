@@ -10,7 +10,7 @@ namespace DinoDiner.Menu
     /// <summary>
     /// Anstract class Drink represents the menu item a drink
     /// </summary>
-    public abstract class Drink
+    public abstract class Drink : IMenuItem
     {
         /// <summary>
         /// The price of the drink

@@ -8,7 +8,7 @@ namespace DinoDiner.Menu
     /// <summary>
     /// Class triceritots represents the side and menu item triceritots
     /// </summary>
-    public class Triceritots : Side
+    public class Triceritots : Side, IMenuItem
     {
         private Size size;
 
