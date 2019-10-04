@@ -73,5 +73,14 @@ namespace DinoDiner.Menu
         {
             mustard = false;
         }
+
+        /// <summary>
+        /// Return what the entree is
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            return "Steakosaurus Burger";
+        }
     } // end class SteakosaurusBurger
 }

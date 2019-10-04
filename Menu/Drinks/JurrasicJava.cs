@@ -1,7 +1,7 @@
 ﻿/* JurassicJava.cs
  * Author: Ben Amos
  */
-/* JurrasicJava.cs
+/* JurassicJava.cs
  * Author: Ben Amos
  */
 using System;
@@ -13,7 +13,7 @@ namespace DinoDiner.Menu
     /// <summary>
     /// Class JurassicJava represents the menu item JurassicJava which is coffee
     /// </summary>
-    public class JurrasicJava : Drink, IMenuItem
+    public class JurassicJava : Drink, IMenuItem
     {
         private Size size;
 
@@ -62,13 +62,19 @@ namespace DinoDiner.Menu
         /// <summary>
         /// The ingredients of the coffee
         /// </summary>
-        public override List<string> Ingredients { get; set; } = new List<string>() { "Water", "Coffee" };
+        public override List<string> Ingredients
+        {
+            get
+            {
+                return new List<string>() { "Water", "Coffee" };
+            }                
+        }
         
 
         /// <summary>
         /// Default constructor sets coffee to small
         /// </summary>
-        public JurrasicJava()
+        public JurassicJava()
         {
             Size = Size.Small;
             HoldIce();
@@ -96,9 +102,9 @@ namespace DinoDiner.Menu
         /// <returns>What the drink is</returns>
         public override string ToString()
         {
-            string name = Size + "";
+            string name = Size.ToString();
             if (Decaf) name += " Decaf";
-            name += " Jurrasic Java";
+            name += " Jurassic Java";
             return name;
         }
     }

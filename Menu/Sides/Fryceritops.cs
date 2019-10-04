@@ -43,13 +43,32 @@ namespace DinoDiner.Menu
         }
 
         /// <summary>
+        /// Returns a list of all the ingredients in the Fryceritops
+        /// </summary>
+        public override List<string> Ingredients
+        {
+            get
+            {
+                return new List<string>() { "Potato", "Salt", "Vegetable Oil" };
+            }
+        }
+
+        /// <summary>
         /// Default constructor initializes price, calories, and ingredients
         /// </summary>
         public Fryceritops()
         {
             Price = 0.99;
-            Calories = 222;
-            Ingredients = new List<string>() { "Potato", "Salt", "Vegetable Oil" };
+            Calories = 222;            
+        }
+
+        /// <summary>
+        /// Returns the size and what the side is
+        /// </summary>
+        /// <returns>The size and what the side is</returns>
+        public override string ToString()
+        {
+            return Size.ToString() + " Friceritops";
         }
     }
 }

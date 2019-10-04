@@ -43,13 +43,32 @@ namespace DinoDiner.Menu
         }
 
         /// <summary>
+        /// Return a list of all the ingredients in the MezzorellaSticks
+        /// </summary>
+        public override List<string> Ingredients
+        {
+            get
+            {
+                return new List<string>() { "Cheese Product", "Breading", "Vegetable Oil" };
+            }
+        }
+
+        /// <summary>
         /// Default constructor sets price, calories and ingredients
         /// </summary>
         public MezzorellaSticks()
         {
             Price = 0.99;
-            Calories = 540;
-            Ingredients = new List<string>() { "Cheese Product", "Breading", "Vegetable Oil" };
+            Calories = 540;            
+        }
+
+        /// <summary>
+        /// Returns what the side is
+        /// </summary>
+        /// <returns>Returns what the side is</returns>
+        public override string ToString()
+        {
+            return Size.ToString() + " Mezzorella Sticks";
         }
     }
 }

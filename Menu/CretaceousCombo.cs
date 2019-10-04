@@ -7,7 +7,7 @@ using System.Text;
 
 namespace DinoDiner.Menu
 {
-    class CretaceousCombo : IMenuItem
+    public class CretaceousCombo : IMenuItem
     {
         // Backing Variables
         private Size size;
@@ -87,6 +87,15 @@ namespace DinoDiner.Menu
         public CretaceousCombo(Entree entree)
         {
             this.Entree = entree;
+        }
+
+        /// <summary>
+        /// Returns what the combo is
+        /// </summary>
+        /// <returns>What the combo is</returns>
+        public override string ToString()
+        {
+            return Entree.ToString() + " Combo";
         }
     }
 }

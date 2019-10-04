@@ -43,14 +43,29 @@ namespace DinoDiner.Menu
         }
 
         /// <summary>
+        /// Returns a list ofall the ingredients in the triceritops
+        /// </summary>
+        public override List<string> Ingredients
+        {
+            get
+            {
+                return new List<string>() { "Potato", "Salt", "Vegetable Oil" };
+            }
+        }
+
+        /// <summary>
         /// Default constructor sets price, calories, and ingredients
         /// </summary>
         /// <param name="size"></param>
         public Triceritots()
         {
             Price = .99;
-            Calories = 352;
-            Ingredients = new List<string>() { "Potato", "Salt", "Vegetable Oil" };
+            Calories = 352;           
+        }
+
+        public override string ToString()
+        {
+            return Size.ToString() + " Triceritots";
         }
     }
 }

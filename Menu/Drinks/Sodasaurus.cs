@@ -54,7 +54,13 @@ namespace DinoDiner.Menu
         /// <summary>
         /// The ingredients of the sodasaurus
         /// </summary>
-        public override List<string> Ingredients { get; set; } = new List<string>() { "Water", "Natural Flavors", "Cane Sugar" };
+        public override List<string> Ingredients
+        {
+            get
+            {
+                return new List<string>() { "Water", "Natural Flavors", "Cane Sugar" };
+            }
+        }  
 
         /// <summary>
         /// Default constructor sets soda to small
@@ -62,6 +68,15 @@ namespace DinoDiner.Menu
         public Sodasaurus()
         {
             Size = Size.Small;
+        }
+
+        /// <summary>
+        /// Returns what the drink is
+        /// </summary>
+        /// <returns>Returns what the drink is</returns>
+        public override string ToString()
+        {
+            return Size.ToString() + " " + Flavor.ToString() + " Sodasaurus";
         }
     }
 }

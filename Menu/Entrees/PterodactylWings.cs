@@ -32,5 +32,14 @@ namespace DinoDiner.Menu
             Price = 7.21;
             Calories = 318;
         }
+
+        /// <summary>
+        /// Returns what the entree is
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            return "Pterodactyl Wings";
+        }
     } // end class PterodactylWings
 }
