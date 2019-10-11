@@ -9,6 +9,23 @@
       Title="SideSelection">
 
     <Grid Background="LightGoldenrodYellow">
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Grid.Column="0">
+            <Button>Fryceritops</Button>
+            <Button>Triceritots</Button>
+            <Button>Meteor Mac &amp; Cheese</Button>
+            <Button>Mozzerella Sticks</Button>
+        </StackPanel>
+        <StackPanel Grid.Row="0" Grid.Column="1">
+            <RadioButton>Small</RadioButton>
+            <RadioButton>Medium</RadioButton>
+            <RadioButton>Large</RadioButton>
+        </StackPanel>
     </Grid>
 </Page>

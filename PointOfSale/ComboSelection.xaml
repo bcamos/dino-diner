@@ -19,14 +19,21 @@
         <StackPanel Grid.Row="0" Grid.Column="0" Margin="5">
             <StackPanel.Resources>
                 <Style TargetType="Button">
-                    <Setter Property="MinWidth" Value="50"/>
-                    <Setter Property="Height" Value="87"/>
+                    <Setter Property="MinWidth" Value="200"/>
+                    <Setter Property="Height" Value="125"/>
                     <Setter Property="Margin" Value="5"/>
                     <Setter Property="FontSize" Value="20"/>
                 </Style>
             </StackPanel.Resources>
             <Button Click="SelectSteakosaurusCombo">Steakosaurus Burger Combo</Button>
-            <Button Click="SelectDinoNuggetsCombo">Dino-Nuggets Combo</Button>
+            <Button Click="SelectDinoNuggetsCombo">
+                <Button.Background>
+                <ImageBrush ImageSource="Images/DinoDiner-02.png"/>
+                </Button.Background>
+                <StackPanel>                    
+                    <TextBlock>Dino-Nuggets Combo</TextBlock>
+                </StackPanel>                
+            </Button>
             <Button Click="SelectPterodactylWingsCombo">Pterodactyl Wings Combo</Button>
             
             
@@ -35,13 +42,18 @@
             <StackPanel.Resources>
                 <Style TargetType="Button">
                     <Setter Property="MinWidth" Value="50"/>
-                    <Setter Property="Height" Value="63"/>
+                    <Setter Property="Height" Value="91"/>
                     <Setter Property="Margin" Value="5"/>
                     <Setter Property="FontSize" Value="15"/>
                 </Style>
-            </StackPanel.Resources>
+            </StackPanel.Resources>            
             <Button Click="SelectTRexBurgerCombo">T-Rex King Burger Combo</Button>
-            <Button Click="SelectBrontowurstCombo">Brontowurst Combo</Button>
+            <Button Click="SelectBrontowurstCombo">
+                <StackPanel>
+                    <Image Width="30" Source="Images/DinoDiner-01.png"/>
+                    <TextBlock>Brontowurst Combo</TextBlock>
+                </StackPanel>                
+            </Button>
             <Button Click="SelectPBJCombo">Prehistoric PB&amp;J Combo</Button>
             <Button Click="SelectVelociWrapCombo">Veloci-Wrap Combo</Button>
         </StackPanel>
