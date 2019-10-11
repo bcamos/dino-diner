@@ -1,4 +1,4 @@
-﻿<Page x:Class="PointOfSale.ComboSelection"
+﻿<Page x:Class="PointOfSale.EntreeSelection"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,8 +6,9 @@
       xmlns:local="clr-namespace:PointOfSale"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="ComboSelection">
-    <Grid Background="Coral">
+      Title="EntreeSelection">
+
+    <Grid Background="DarkSeaGreen">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
@@ -15,21 +16,21 @@
         <Grid.RowDefinitions>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        
+
         <StackPanel Grid.Row="0" Grid.Column="0" Margin="5">
             <StackPanel.Resources>
                 <Style TargetType="Button">
                     <Setter Property="MinWidth" Value="50"/>
                     <Setter Property="Height" Value="87"/>
                     <Setter Property="Margin" Value="5"/>
-                    <Setter Property="FontSize" Value="20"/>
+                    <Setter Property="FontSize" Value="25"/>
                 </Style>
             </StackPanel.Resources>
-            <Button Click="SelectSteakosaurusCombo">Steakosaurus Burger Combo</Button>
-            <Button Click="SelectDinoNuggetsCombo">Dino-Nuggets Combo</Button>
-            <Button Click="SelectPterodactylWingsCombo">Pterodactyl Wings Combo</Button>
-            
-            
+            <Button>Steakosaurus Burger</Button>
+            <Button>Dino-Nuggets</Button>
+            <Button>Pterodactyl Wings</Button>
+
+
         </StackPanel>
         <StackPanel Grid.Row="0" Grid.Column="1" Margin="5">
             <StackPanel.Resources>
@@ -37,13 +38,13 @@
                     <Setter Property="MinWidth" Value="50"/>
                     <Setter Property="Height" Value="63"/>
                     <Setter Property="Margin" Value="5"/>
-                    <Setter Property="FontSize" Value="15"/>
+                    <Setter Property="FontSize" Value="20"/>
                 </Style>
             </StackPanel.Resources>
-            <Button Click="SelectTRexBurgerCombo">T-Rex King Burger Combo</Button>
-            <Button Click="SelectBrontowurstCombo">Brontowurst Combo</Button>
-            <Button Click="SelectPBJCombo">Prehistoric PB&amp;J Combo</Button>
-            <Button Click="SelectVelociWrapCombo">Veloci-Wrap Combo</Button>
+            <Button>T-Rex King Burger</Button>
+            <Button>Brontowurst</Button>
+            <Button>Prehistoric PB&amp;J</Button>
+            <Button>Veloci-Wrap</Button>
         </StackPanel>
-    </Grid>    
+    </Grid>
 </Page>
