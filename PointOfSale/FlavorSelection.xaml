@@ -8,7 +8,33 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="FlavorSelection">
 
-    <Grid>
-        
+    <Grid Background="DeepSkyBlue">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.Resources>
+            <Style TargetType="Button">
+                <Setter Property="Width" Value="230"/>
+                <Setter Property="Margin" Value="10"/>
+                <Setter Property="FontSize" Value="27"/>
+                <Setter Property="FontWeight" Value="Medium"/>
+            </Style>
+        </Grid.Resources>
+        <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Background="DarkRed">Cola</Button>
+            <Button Background="BurlyWood">Root Beer</Button>
+            <Button Background="Lime">Lime</Button>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Background="Chocolate">Chocolate</Button>
+            <Label VerticalAlignment="Center" FontSize="40" FontWeight="Bold" Margin="40">Flavor</Label>
+            <Button Background="Crimson">Cherry</Button>
+        </StackPanel>
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Background="Orange">Orange</Button>
+            <Button Background="AntiqueWhite">Vanilla</Button>
+        </StackPanel>
     </Grid>
 </Page>

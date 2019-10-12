@@ -8,7 +8,62 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="CustomizeCombo">
 
-    <Grid>
-        
+    <Grid Background="Coral">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"/>
+            <RowDefinition/>
+            <RowDefinition Height="70"/>
+        </Grid.RowDefinitions>
+        <Label HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" FontWeight="Bold">Customize Combo</Label>
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel.Resources>
+                <Style TargetType="Button">
+                    <Setter Property="Width" Value="220"/>
+                    <Setter Property="Height" Value="200"/>
+                    <Setter Property="Margin" Value="3"/>
+                    <Setter Property="FontSize" Value="30"/>
+                </Style>
+                <Style TargetType="Label">
+                    <Setter Property="HorizontalAlignment" Value="Center"/>
+                    <Setter Property="FontSize" Value="20"/>
+                    <Setter Property="FontWeight" Value="Bold"/>
+                </Style>
+            </StackPanel.Resources>
+            <StackPanel Margin="10">
+                <Label>-+Switch Side</Label>
+                <Button Click="SelectSide">
+                    <Button.Background>
+                        <ImageBrush ImageSource="Images/DinoDiner-08.png"/>
+                    </Button.Background>
+                </Button>
+                <Label>Friceritops</Label>
+            </StackPanel>
+            <StackPanel Margin="10">
+                <Label>-+Switch Drink</Label>
+                <Button Click="SelectDrink">
+                    <Button.Background>
+                        <ImageBrush ImageSource="Images/DinoDiner-14.png"/>
+                    </Button.Background>
+                </Button>
+                <Label>Sodasaurus</Label>
+            </StackPanel>
+        </StackPanel>
+        <Grid Grid.Row="2">
+            <Grid.Resources>
+                <Style TargetType="RadioButton">
+                    <Setter Property="HorizontalAlignment" Value="Center"/>
+                    <Setter Property="VerticalAlignment" Value="Center"/>
+                    <Setter Property="FontSize" Value="20"/>
+                </Style>
+            </Grid.Resources>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <RadioButton Grid.Column="0">Small</RadioButton>
+            <RadioButton Grid.Column="1" FontWeight="Bold">Medium</RadioButton>
+            <RadioButton Grid.Column="2" FontWeight="Black">Large</RadioButton>
+        </Grid>
     </Grid>
 </Page>

@@ -17,9 +17,36 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Button Click="SelectCombo" Grid.Row="0" Grid.Column="0" Background="Coral" FontSize="40" Margin="20">Combos</Button>
-        <Button Click="SelectEntree" Grid.Row="0" Grid.Column="1" Background="DarkSeaGreen" FontSize="40" Margin="20">Entrees</Button>
-        <Button Click="SelectSide"  Grid.Row="1" Grid.Column="0" Background="LightGoldenrodYellow" FontSize="40" Margin="20">Sides</Button>
-        <Button Click="SelectDrink" Grid.Row="1" Grid.Column="1" Background="DeepSkyBlue" FontSize="40" Margin="20">Drinks</Button>
+        <Grid.Resources>
+            <Style TargetType="Button">
+                <Setter Property="FontSize" Value="40"/>
+                <Setter Property="Width" Value="300"/>
+                <Setter Property="Height" Value="100"/>
+                <Setter Property="HorizontalAlignment" Value="Center"/>
+                <Setter Property="Background" Value="White"/>
+            </Style>                   
+        </Grid.Resources>
+        <StackPanel Grid.Row="1" Grid.Column="1" Background="Coral">
+            <Button Click="SelectCombo" Margin="20">Combos</Button>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Image Height="50" Source="Images/DinoDiner-05.png"/>
+                <TextBlock Text="    +    " VerticalAlignment="Center" FontSize="20" FontWeight="Bold"/>
+                <Image Height="50" Source="Images/DinoDiner-08.png"/>
+                <TextBlock Text="    +    " VerticalAlignment="Center" FontSize="20" FontWeight="Bold"/>
+                <Image Height="50" Source="Images/DinoDiner-14.png"/>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel Grid.Row="0" Grid.Column="0" Background="DarkSeaGreen">
+            <Button Click="SelectEntree" Margin="20">Entrees</Button>
+            <Image Height="50" Source="Images/DinoDiner-05.png"/>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Grid.Column="0" Background="LightGoldenrodYellow">
+            <Button Click="SelectSide" Margin="20">Sides</Button>
+            <Image Height="50" Source="Images/DinoDiner-08.png"/>
+        </StackPanel>
+        <StackPanel Grid.Row="0" Grid.Column="1" Background="DeepSkyBlue">
+            <Button Click="SelectDrink" Margin="20">Drinks</Button>
+            <Image Height="50" Source="Images/DinoDiner-14.png"/>
+        </StackPanel>       
     </Grid>
 </Page>

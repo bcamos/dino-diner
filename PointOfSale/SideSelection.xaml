@@ -11,21 +11,89 @@
     <Grid Background="LightGoldenrodYellow">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
-            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
+        <Grid.RowDefinitions>            
             <RowDefinition/>
+            <RowDefinition Height="70"/>
         </Grid.RowDefinitions>
-        <StackPanel Grid.Row="0" Grid.Column="0">
-            <Button>Fryceritops</Button>
-            <Button>Triceritots</Button>
-            <Button>Meteor Mac &amp; Cheese</Button>
-            <Button>Mozzerella Sticks</Button>
-        </StackPanel>
-        <StackPanel Grid.Row="0" Grid.Column="1">
+        
+        <Grid Grid.Row="0" Grid.Column="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.Resources>
+                <Style TargetType="Button">
+                    <Setter Property="Height" Value="140"/>
+                    <Setter Property="Width" Value="200"/>
+                    <Setter Property="Margin" Value="5"/>
+                </Style>
+                <Style TargetType="Label">
+                    <Setter Property="HorizontalAlignment" Value="Center"/>
+                    <Setter Property="FontSize" Value="20"/>
+                    <Setter Property="FontWeight" Value="Medium"/>
+                </Style>
+            </Grid.Resources>
+            <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Center">
+                <StackPanel>
+                    <Label>+ Fryceritops</Label>
+                    <Button>
+                        <Button.Background>
+                            <ImageBrush ImageSource="Images/DinoDiner-08.png"/>
+                        </Button.Background>
+                    </Button>
+                </StackPanel>
+                <Label HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="40" FontWeight="Bold" Margin="30">Sides</Label>
+                <StackPanel>
+                    <Label>+ Meteor Mac &amp; Cheese</Label>
+                    <Button>
+                        <Button.Background>
+                            <ImageBrush ImageSource="Images/DinoDiner-09.png"/>
+                        </Button.Background>
+                    </Button>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Center">
+                <StackPanel>
+                    <Label>+ Triceritots</Label>
+                    <Button>
+                        <Button.Background>
+                            <ImageBrush ImageSource="Images/DinoDiner-11.png"/>
+                        </Button.Background>
+                    </Button>
+                </StackPanel>
+                <StackPanel>
+                    <Label>+ Mozzerella Sticks</Label>
+                    <Button>
+                        <Button.Background>
+                            <ImageBrush ImageSource="Images/DinoDiner-10.png"/>
+                        </Button.Background>
+                    </Button>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row="1" Grid.Column="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.Resources>
+                <Style TargetType="RadioButton">
+                    <Setter Property="VerticalAlignment" Value="Center"/>
+                    <Setter Property="HorizontalAlignment" Value="Center"/>
+                    <Setter Property="FontSize" Value="20"/>
+                </Style>
+            </Grid.Resources>
             <RadioButton>Small</RadioButton>
-            <RadioButton>Medium</RadioButton>
-            <RadioButton>Large</RadioButton>
-        </StackPanel>
+            <RadioButton Grid.Column="1" FontWeight="Bold">Medium</RadioButton>
+            <RadioButton Grid.Column="2" FontWeight="Black">Large</RadioButton>
+        </Grid>        
     </Grid>
 </Page>
