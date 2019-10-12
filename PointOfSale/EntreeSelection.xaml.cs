@@ -1,4 +1,7 @@
-﻿using System;
+﻿/** EntreeSelection.xaml.cs
+ * Author: Ben Amos
+ */
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,7 +19,7 @@ using System.Windows.Shapes;
 namespace PointOfSale
 {
     /// <summary>
-    /// Interaction logic for EntreeSelection.xaml
+    /// The entrees order page
     /// </summary>
     public partial class EntreeSelection : Page
     {

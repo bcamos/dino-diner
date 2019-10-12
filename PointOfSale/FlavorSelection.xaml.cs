@@ -1,4 +1,7 @@
-﻿using System;
+﻿/** FlavorSelection.xaml.cs
+ * Author: Ben Amos
+ */
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,7 +19,7 @@ using System.Windows.Shapes;
 namespace PointOfSale
 {
     /// <summary>
-    /// Interaction logic for FlavorSelection.xaml
+    /// The soda flavor menu
     /// </summary>
     public partial class FlavorSelection : Page
     {

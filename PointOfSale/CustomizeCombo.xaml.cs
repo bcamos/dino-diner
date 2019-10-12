@@ -1,4 +1,7 @@
-﻿using System;
+﻿/** CustomizeCombo.xaml.cs
+ * Author: Ben Amos
+ */
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,7 +19,7 @@ using System.Windows.Shapes;
 namespace PointOfSale
 {
     /// <summary>
-    /// Interaction logic for CustomizeCombo.xaml
+    /// The customize combo screen
     /// </summary>
     public partial class CustomizeCombo : Page
     {
@@ -25,12 +28,22 @@ namespace PointOfSale
             InitializeComponent();
         }
 
-        public void SelectSide(object sender, RoutedEventArgs args)
+        /// <summary>
+        /// Open side menu when side button is clicked
+        /// </summary>
+        /// <param name="sender">The side button</param>
+        /// <param name="args"></param>
+        public void SelectSide_Click(object sender, RoutedEventArgs args)
         {
             NavigationService.Navigate(new SideSelection());
         }
 
-        public void SelectDrink(object sender, RoutedEventArgs args)
+        /// <summary>
+        /// Open drink menu when drink button is clicked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
+        public void SelectDrink_Click(object sender, RoutedEventArgs args)
         {
             NavigationService.Navigate(new DrinkSelection());
         }

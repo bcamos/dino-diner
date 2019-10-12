@@ -1,4 +1,7 @@
-﻿using System;
+﻿/** ComboSelection.xaml.cs
+ * Author: Ben Amos
+ */
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,7 +19,7 @@ using System.Windows.Shapes;
 namespace PointOfSale
 {
     /// <summary>
-    /// Interaction logic for ComboSelection.xaml
+    /// The combo menu
     /// </summary>
     public partial class ComboSelection : Page
     {
@@ -25,39 +28,15 @@ namespace PointOfSale
             InitializeComponent();
         }
 
-        public void SelectSteakosaurusCombo(object sender, RoutedEventArgs args)
+        /// <summary>
+        /// Open customize combo screen when a combo is clicked
+        /// </summary>
+        /// <param name="sender">A combo button</param>
+        /// <param name="args"></param>
+        public void SelectCombo_Click(object sender, RoutedEventArgs args)
         {
             NavigationService.Navigate(new CustomizeCombo());
         }
-
-        public void SelectDinoNuggetsCombo(object sender, RoutedEventArgs args)
-        {
-            NavigationService.Navigate(new CustomizeCombo());
-        }
-
-        public void SelectPterodactylWingsCombo(object sender, RoutedEventArgs args)
-        {
-            NavigationService.Navigate(new CustomizeCombo());
-        }
-
-        public void SelectBrontowurstCombo(object sender, RoutedEventArgs args)
-        {
-            NavigationService.Navigate(new CustomizeCombo());
-        }
-
-        public void SelectTRexBurgerCombo(object sender, RoutedEventArgs args)
-        {
-            NavigationService.Navigate(new CustomizeCombo());
-        }
-
-        public void SelectPBJCombo(object sender, RoutedEventArgs args)
-        {
-            NavigationService.Navigate(new CustomizeCombo());
-        }
-
-        public void SelectVelociWrapCombo(object sender, RoutedEventArgs args)
-        {
-            NavigationService.Navigate(new CustomizeCombo());
-        }
+        
     }
 }

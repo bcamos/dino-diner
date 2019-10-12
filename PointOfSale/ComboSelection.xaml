@@ -22,6 +22,7 @@
                 <Setter Property="Height" Value="100"/>
                 <Setter Property="Margin" Value="5"/>
                 <Setter Property="FontSize" Value="20"/>
+                <EventSetter Event="Click" Handler="SelectCombo_Click"/>
             </Style>
             <Style TargetType="StackPanel">
                 <Setter Property="HorizontalAlignment" Value="Center"/>
@@ -34,7 +35,7 @@
         <StackPanel Grid.Row="0" Orientation="Horizontal">
             <StackPanel>
                 <Label>+ Steakosaurus Burger</Label>
-                <Button Click="SelectBrontowurstCombo">
+                <Button>
                     <Button.Background>
                         <ImageBrush ImageSource="Images/DinoDiner-05.png"/>
                     </Button.Background>
@@ -42,7 +43,7 @@
             </StackPanel>
             <StackPanel>
                 <Label>+ Pterodactyl Wings</Label>
-                <Button Click="SelectPterodactylWingsCombo">
+                <Button>
                     <Button.Background>
                         <ImageBrush ImageSource="Images/DinoDiner-04.png"/>
                     </Button.Background>
@@ -50,7 +51,7 @@
             </StackPanel>
             <StackPanel>
                 <Label>+ T-Rex King Burger</Label>
-                <Button Click="SelectTRexBurgerCombo">
+                <Button>
                     <Button.Background>
                         <ImageBrush ImageSource="Images/DinoDiner-06.png"/>
                     </Button.Background>
@@ -60,7 +61,7 @@
         <StackPanel Grid.Row="1" Orientation="Horizontal">
             <StackPanel>
                 <Label>+ Dino-Nuggets</Label>
-                <Button Click="SelectDinoNuggetsCombo">
+                <Button>
                     <Button.Background>
                         <ImageBrush ImageSource="Images/DinoDiner-02.png"/>
                     </Button.Background>
@@ -69,7 +70,7 @@
             <Label FontSize="40" VerticalAlignment="Center" FontWeight="Bold" Margin="40">Combos</Label>
             <StackPanel>
                 <Label>+ Brontowurst</Label>
-                <Button Click="SelectBrontowurstCombo">
+                <Button>
                     <Button.Background>
                         <ImageBrush ImageSource="Images/DinoDiner-01.png"/>
                     </Button.Background>
@@ -79,7 +80,7 @@
         <StackPanel Grid.Row="2" Orientation="Horizontal">
             <StackPanel>
                 <Label>+ Prehistoric PB&amp;J</Label>
-                <Button Click="SelectPBJCombo">
+                <Button>
                     <Button.Background>
                         <ImageBrush ImageSource="Images/DinoDiner-03.png"/>
                     </Button.Background>
@@ -87,28 +88,12 @@
             </StackPanel>
             <StackPanel>
                 <Label>+ Veloci-Wrap</Label>
-                <Button Click="SelectVelociWrapCombo">
+                <Button>
                     <Button.Background>
                         <ImageBrush ImageSource="Images/DinoDiner-07.png"/>
                     </Button.Background>
                 </Button>
             </StackPanel>
-        </StackPanel>
-
-        <StackPanel Grid.Row="0" Grid.Column="0" Margin="5">
-            <StackPanel.Resources>
-                <Style TargetType="Button">
-                    <Setter Property="MinWidth" Value="50"/>
-                    <Setter Property="Height" Value="87"/>
-                    <Setter Property="Margin" Value="5"/>
-                    <Setter Property="FontSize" Value="25"/>
-                </Style>
-            </StackPanel.Resources>
-
-
-
-
-
         </StackPanel>
     </Grid>    
 </Page>

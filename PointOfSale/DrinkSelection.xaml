@@ -14,7 +14,9 @@
             <RowDefinition/>
             <RowDefinition Height="70"/>
         </Grid.RowDefinitions>
-        <Label VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="35" FontWeight="Bold">Drinks</Label>
+        <StackPanel Background="Beige">
+            <Label VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="35" FontWeight="Bold">Drinks</Label>
+        </StackPanel>        
         <Grid Grid.Row="1">            
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
@@ -44,7 +46,7 @@
                 </Grid.RowDefinitions>
                 <StackPanel Grid.Row="0" Grid.Column="0">
                     <Label Name="uxSodasaurusLabel">+ Sodasaurus</Label>
-                    <Button  Click="SelectSodasaurus" Name="uxSodasaurus">
+                    <Button  Click="SelectSodasaurus_Click" Name="uxSodasaurus">
                         <Button.Background>
                             <ImageBrush ImageSource="Images/DinoDiner-14.png"></ImageBrush>
                         </Button.Background>
@@ -52,7 +54,7 @@
                 </StackPanel>
                 <StackPanel Grid.Row="1" Grid.Column="0" >
                     <Label Name="uxTyrannoteaLabel">+ Tyrannotea</Label>
-                    <Button Click="SelectTyrannotea"  Name="uxTyrannotea">
+                    <Button Click="SelectTyrannotea_Click"  Name="uxTyrannotea">
                         <Button.Background>
                             <ImageBrush ImageSource="Images/DinoDiner-12.png"></ImageBrush>
                         </Button.Background>
@@ -60,7 +62,7 @@
                 </StackPanel>
                 <StackPanel Grid.Row="0" Grid.Column="1">
                     <Label Name="uxJurrasicJavaLabel">+ Jurrasic Java</Label>
-                    <Button Click="SelectJurrasicJava" Name="uxJurrasicJava">
+                    <Button Click="SelectJurrasicJava_Click" Name="uxJurrasicJava">
                         <Button.Background>
                             <ImageBrush ImageSource="Images/DinoDiner-13.png"></ImageBrush>
                         </Button.Background>
@@ -68,7 +70,7 @@
                 </StackPanel>
                 <StackPanel Grid.Row="1" Grid.Column="1">
                     <Label Name="uxWaterLabel">+ Water</Label>
-                    <Button Click="SelectWater" Name="uxWater">
+                    <Button Click="SelectWater_Click" Name="uxWater">
                         <Button.Background>
                             <ImageBrush ImageSource="Images/DinoDiner-15.png"></ImageBrush>
                         </Button.Background>
@@ -85,7 +87,7 @@
                 </StackPanel.Resources>
             </StackPanel>
         </Grid>
-        <Grid Grid.Row="2">
+        <Grid Grid.Row="2" Background="Beige">
             <Grid.Resources>
                 <Style TargetType="RadioButton">
                     <Setter Property="HorizontalAlignment" Value="Center"/>

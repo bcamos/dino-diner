@@ -14,7 +14,9 @@
             <RowDefinition/>
             <RowDefinition Height="70"/>
         </Grid.RowDefinitions>
-        <Label HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" FontWeight="Bold">Customize Combo</Label>
+        <StackPanel Background="Beige">
+            <Label HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="35" FontWeight="Bold">Customize Combo</Label>
+        </StackPanel>        
         <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
             <StackPanel.Resources>
                 <Style TargetType="Button">
@@ -31,24 +33,24 @@
             </StackPanel.Resources>
             <StackPanel Margin="10">
                 <Label>-+Switch Side</Label>
-                <Button Click="SelectSide">
+                <Button Click="SelectSide_Click">
                     <Button.Background>
                         <ImageBrush ImageSource="Images/DinoDiner-08.png"/>
                     </Button.Background>
                 </Button>
-                <Label>Friceritops</Label>
+                <Label>* Friceritops</Label>
             </StackPanel>
             <StackPanel Margin="10">
                 <Label>-+Switch Drink</Label>
-                <Button Click="SelectDrink">
+                <Button Click="SelectDrink_Click">
                     <Button.Background>
                         <ImageBrush ImageSource="Images/DinoDiner-14.png"/>
                     </Button.Background>
                 </Button>
-                <Label>Sodasaurus</Label>
+                <Label>* Sodasaurus</Label>
             </StackPanel>
         </StackPanel>
-        <Grid Grid.Row="2">
+        <Grid Grid.Row="2" Background="Beige">
             <Grid.Resources>
                 <Style TargetType="RadioButton">
                     <Setter Property="HorizontalAlignment" Value="Center"/>

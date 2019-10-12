@@ -1,4 +1,7 @@
-﻿using System;
+﻿/** MainWindow.xaml.cs
+ * Author: Ben Amos
+ */
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
