@@ -4,13 +4,14 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {   
     /// <summary>
     /// Abstract class that represents a menu item that is a side
     /// </summary>
-    public abstract class Side : IMenuItem
+    public abstract class Side : IMenuItem, IOrderItem, INotifyPropertyChanged
     {
         /// <summary>
         /// Gets and sets the price
@@ -28,9 +29,44 @@ namespace DinoDiner.Menu
         public abstract List<string> Ingredients { get; }
 
         /// <summary>
+        /// A description of what the side is
+        /// </summary>
+        public virtual string Description
+        {
+            get
+            {
+                return this.ToString();
+            }
+        }
+
+        /// <summary>
+        /// An array of all the special accomodations to the side
+        /// </summary>
+        public virtual string[] Special
+        {
+            get
+            {
+                return new string[0];
+            }
+        }
+
+        /// <summary>
         /// Gets or sets the size
         /// </summary>
-        public virtual Size Size { get; set; }
+        public abstract Size Size { get; set; }
 
+        /// <summary>
+        /// An event handler for when properties are changed
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        /// <summary>
+        /// Add the property event args for the given property
+        /// </summary>
+        /// <param name="propertyName">The property that was changed</param>
+        protected void NotifyOfPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
     }
 }

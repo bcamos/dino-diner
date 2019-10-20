@@ -8,7 +8,7 @@ namespace DinoDiner.Menu
     /// <summary>
     /// Class Fryceritops represents the side and menu item Fryceritops
     /// </summary>
-    public class Fryceritops : Side, IMenuItem
+    public class Fryceritops : Side
     {
         private Size size;
 
@@ -35,11 +35,16 @@ namespace DinoDiner.Menu
                         Calories = 480;
                         break;
                 }
+                NotifyOfPropertyChanged("Size");
+                NotifyOfPropertyChanged("Calories");
+                NotifyOfPropertyChanged("Price");
+                NotifyOfPropertyChanged("Description");
             }
             get
             {
                 return size;
             }
+            
         }
 
         /// <summary>
@@ -68,7 +73,7 @@ namespace DinoDiner.Menu
         /// <returns>The size and what the side is</returns>
         public override string ToString()
         {
-            return Size.ToString() + " Friceritops";
+            return Size.ToString() + " Fryceritops";
         }
     }
 }

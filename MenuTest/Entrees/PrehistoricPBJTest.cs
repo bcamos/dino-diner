@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using Xunit;
-using DinoDiner.Menu.Entrees;
+using DinoDiner.Menu;
 
 namespace MenuTest.Entrees
 {
@@ -45,7 +45,25 @@ namespace MenuTest.Entrees
             PrehistoricPBJ pbj = new PrehistoricPBJ();
             pbj.HoldJelly();
             Assert.DoesNotContain<string>("Jelly", pbj.Ingredients);
+        }       
+
+
+        [Fact]
+        public void HoldingIngredientsShouldNotifySpecialChange()
+        {
+            PrehistoricPBJ pbj = new PrehistoricPBJ();
+            Assert.PropertyChanged(pbj, "Special", () =>
+            {
+                pbj.HoldPeanutButter();
+            });
+
+            pbj = new PrehistoricPBJ();
+            Assert.PropertyChanged(pbj, "Special", () =>
+            {
+                pbj.HoldJelly();
+            });
         }
+        
     }
 
 }

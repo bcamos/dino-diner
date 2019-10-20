@@ -10,7 +10,7 @@ namespace DinoDiner.Menu
     /// <summary>
     /// Class water represents the menu item water
     /// </summary>
-    public class Water : Drink, IMenuItem
+    public class Water : Drink
     {
         /// <summary>
         /// Whether a lemon is included on the glass of water
@@ -28,7 +28,21 @@ namespace DinoDiner.Menu
                 if (Lemon) ingredients.Add("Lemon");
                 return ingredients;
             }
-        } 
+        }
+
+        /// <summary>
+        /// An array containing all the special accomodations to this order of water
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> specials = new List<string>();
+                if (Lemon) specials.Add("Add Lemon");
+                if (!Ice) specials.Add("Hold Ice");
+                return specials.ToArray();
+            }
+        }
 
         /// <summary>
         /// Default constructor sets price, calories, and size to small
@@ -46,6 +60,9 @@ namespace DinoDiner.Menu
         public void AddLemon()
         {
             Lemon = true;
+            NotifyOfPropertyChanged("Lemon");
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>

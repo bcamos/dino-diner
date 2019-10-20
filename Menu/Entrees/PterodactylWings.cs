@@ -9,7 +9,7 @@ namespace DinoDiner.Menu
     /// <summary>
     /// Class PterodactylWings represents the menu item Pterodactyl Wings.
     /// </summary>
-    public class PterodactylWings : Entree, IMenuItem
+    public class PterodactylWings : Entree
     {
 
         /// <summary>
@@ -21,6 +21,17 @@ namespace DinoDiner.Menu
             {
                 List<string> ingredients = new List<string>() { "Chicken", "Wing Sauce" };
                 return ingredients;
+            }
+        }
+
+        /// <summary>
+        /// A list containing all the specials accomodation to the pterodactyl wings order
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                return new string[0];
             }
         }
 

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using Xunit;
-using DinoDiner.Menu.Entrees;
+using DinoDiner.Menu;
 
 namespace MenuTest.Entrees
 {
@@ -84,6 +84,28 @@ namespace MenuTest.Entrees
             Assert.Equal<uint>(dn.Calories, 59*8);
             dn.AddNugget();
             Assert.Equal<uint>(dn.Calories, 59*9);
+        }
+
+        [Fact]
+        public void AddingNuggetShouldNotifyPropertyChangedPriceCaloriesSpecial()
+        {
+            DinoNuggets dn = new DinoNuggets();
+            Assert.PropertyChanged(dn, "Price", () =>
+            {
+                dn.AddNugget();
+            });
+
+            dn = new DinoNuggets();
+            Assert.PropertyChanged(dn, "Calories", () =>
+            {
+                dn.AddNugget();
+            });
+
+            dn = new DinoNuggets();
+            Assert.PropertyChanged(dn, "Special", () =>
+            {
+                dn.AddNugget();
+            });
         }
     }
 }

@@ -123,5 +123,34 @@ namespace DinoDiner.MenuTest.Drinks
             Assert.Contains<string>("Natural Flavors", soda.Ingredients);
             Assert.Contains<string>("Cane Sugar", soda.Ingredients);
         }
+
+        [Fact]
+        public void HoldingIceShouldNotifyPropertyChangeSpecial()
+        {
+            Sodasaurus s = new Sodasaurus();
+            Assert.PropertyChanged(s, "Special", () =>
+            {
+                s.HoldIce();
+            });
+        }
+
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Large)]
+        public void ChangingSizeShouldNotifyPropertyChangePriceAndDescription(Size size)
+        {
+            Sodasaurus s = new Sodasaurus();
+            Assert.PropertyChanged(s, "Price", () =>
+            {
+                s.Size = size;
+            });
+
+            s = new Sodasaurus();
+            Assert.PropertyChanged(s, "Description", () =>
+            {
+                s.Size = size;
+            });
+        }
     }
 }

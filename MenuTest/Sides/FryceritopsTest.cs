@@ -83,5 +83,24 @@ namespace MenuTest.Sides
             ft.Size = Size.Large;
             Assert.Equal<Size>(Size.Large, ft.Size);
         }
+
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Large)]
+        public void ChangingSizeShouldNotifyPropertyChangePriceAndDescription(Size size)
+        {
+            Fryceritops f = new Fryceritops();
+            Assert.PropertyChanged(f, "Price", () =>
+            {
+                f.Size = size;
+            });
+
+            f = new Fryceritops();
+            Assert.PropertyChanged(f, "Description", () =>
+            {
+                f.Size = size;
+            });
+        }
     }
 }

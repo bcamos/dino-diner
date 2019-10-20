@@ -10,7 +10,7 @@ namespace DinoDiner.Menu
     /// Class SteakosaurusBurger represents the menu item a SteakosaurusBurger. 
     /// Per request by the customer, the bun, pickles, kethcup and mustard may be removed.
     /// </summary>
-    public class SteakosaurusBurger : Entree, IMenuItem
+    public class SteakosaurusBurger : Entree
     {
         private bool bun = true; // Whether the bun is included
         private bool pickle = true; // Whether pickles are included
@@ -34,6 +34,22 @@ namespace DinoDiner.Menu
         }
 
         /// <summary>
+        /// A list containing all the special accomodations to the steakosaurus burger order
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> specials = new List<string>();
+                if (!bun) specials.Add("Hold Bun");
+                if (!pickle) specials.Add("Hold Pickle");
+                if (!ketchup) specials.Add("Hold Ketchup");
+                if (!mustard) specials.Add("Hold Mustard");
+                return specials.ToArray();
+            }
+        }
+
+        /// <summary>
         /// Default constructor which initializes price and calories
         /// </summary>
         public SteakosaurusBurger()
@@ -48,6 +64,8 @@ namespace DinoDiner.Menu
         public void HoldBun()
         {
             bun = false;
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>
@@ -56,6 +74,8 @@ namespace DinoDiner.Menu
         public void HoldPickle()
         {
             pickle = false;
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>
@@ -64,6 +84,8 @@ namespace DinoDiner.Menu
         public void HoldKetchup()
         {
             ketchup = false;
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>
@@ -72,6 +94,8 @@ namespace DinoDiner.Menu
         public void HoldMustard()
         {
             mustard = false;
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>

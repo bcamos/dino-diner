@@ -10,7 +10,7 @@ namespace DinoDiner.Menu
     /// <summary>
     /// Class Tyrannotea represents the menu item tyronnotea which is tea
     /// </summary>
-    public class Tyrannotea : Drink, IMenuItem
+    public class Tyrannotea : Drink
     {
         private Size size;
         private bool sweet;
@@ -35,6 +35,10 @@ namespace DinoDiner.Menu
                     Calories /= 2;
                 }
                 sweet = value;
+                NotifyOfPropertyChanged("Sweet");
+                NotifyOfPropertyChanged("Calories");
+                NotifyOfPropertyChanged("Description");
+                NotifyOfPropertyChanged("Ingredients");
             }
         }
 
@@ -76,6 +80,10 @@ namespace DinoDiner.Menu
                 {
                     Calories *= 2;
                 }
+                NotifyOfPropertyChanged("Size");
+                NotifyOfPropertyChanged("Description");
+                NotifyOfPropertyChanged("Calories");
+                NotifyOfPropertyChanged("Price");
             }
         }
 
@@ -94,6 +102,20 @@ namespace DinoDiner.Menu
         }
 
         /// <summary>
+        /// An array of all the special accomodations to this tyrannotea order
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> specials = new List<string>();
+                if (Lemon) specials.Add("Add Lemon");
+                if (!Ice) specials.Add("Hold Ice");
+                return specials.ToArray();
+            }
+        }
+
+        /// <summary>
         /// Default constructor sets tea to small
         /// </summary>
         public Tyrannotea()
@@ -104,6 +126,9 @@ namespace DinoDiner.Menu
         public void AddLemon()
         {
             Lemon = true;
+            NotifyOfPropertyChanged("Lemon");
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>

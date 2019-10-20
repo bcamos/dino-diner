@@ -10,14 +10,27 @@ namespace DinoDiner.Menu
     /// <summary>
     /// Class Sodasaurus represents the menu a item a sodasaurus which is a soda
     /// </summary>
-    public class Sodasaurus : Drink, IMenuItem
+    public class Sodasaurus : Drink
     {
         private Size size;
+        private SodasaurusFlavor flavor;
 
         /// <summary>
         /// The flavor of the Sodasaurus
         /// </summary>
-        public SodasaurusFlavor Flavor { get; set; }
+        public SodasaurusFlavor Flavor
+        {
+            get
+            {
+                return flavor;
+            }
+            set
+            {
+                flavor = value;
+                NotifyOfPropertyChanged("Flavor");
+                NotifyOfPropertyChanged("Description");
+            }
+        }
 
         /// <summary>
         /// The size of the sodasaurus; adjusts price and calories as needed when changed.
@@ -48,6 +61,23 @@ namespace DinoDiner.Menu
                         Price = 2.5;
                         break;
                 }
+                NotifyOfPropertyChanged("Size");
+                NotifyOfPropertyChanged("Description");
+                NotifyOfPropertyChanged("Calories");
+                NotifyOfPropertyChanged("Price");
+            }
+        }
+
+        /// <summary>
+        /// An array of all the special accomodations for the sodasaurus order
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> specials = new List<string>();
+                if (!Ice) specials.Add("Hold Ice");
+                return specials.ToArray();
             }
         }
 

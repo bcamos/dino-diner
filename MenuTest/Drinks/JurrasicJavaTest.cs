@@ -76,5 +76,50 @@ namespace DinoDiner.MenuTest.Drinks
             Assert.Contains<string>("Water", coffee.Ingredients);
             Assert.Contains<string>("Coffee", coffee.Ingredients);
         }
+
+        [Fact]
+        public void AddingIceAndLeavingRoomForCreamShouldNotifyPropertyChangeSpecial()
+        {
+            JurassicJava j = new JurassicJava();
+            Assert.PropertyChanged(j, "Special", () =>
+            {
+                j.AddIce();
+            });
+
+            j = new JurassicJava();
+            Assert.PropertyChanged(j, "Special", () =>
+            {
+                j.LeaveRoomForCream();
+            });
+        }
+
+        [Fact]
+        public void DecafShouldNotifyPropertyChangeDescription()
+        {
+            JurassicJava j = new JurassicJava();
+            Assert.PropertyChanged(j, "Description", () =>
+            {
+                j.Decaf = true;
+            });
+        }
+
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Large)]
+        public void ChangingSizeShouldNotifyPropertyChangePriceAndDescription(Size size)
+        {
+            JurassicJava j = new JurassicJava();
+            Assert.PropertyChanged(j, "Price", () =>
+            {
+                j.Size = size;
+            });
+
+            j = new JurassicJava();
+            Assert.PropertyChanged(j, "Description", () =>
+            {
+                j.Size = size;
+            });
+        }
     }
 }

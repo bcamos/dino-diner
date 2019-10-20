@@ -8,7 +8,7 @@ namespace DinoDiner.Menu
     /// <summary>
     /// Class triceritots represents the side and menu item triceritots
     /// </summary>
-    public class Triceritots : Side, IMenuItem
+    public class Triceritots : Side
     {
         private Size size;
 
@@ -35,6 +35,10 @@ namespace DinoDiner.Menu
                         Calories = 590;
                         break;
                 }
+                NotifyOfPropertyChanged("Size");
+                NotifyOfPropertyChanged("Calories");
+                NotifyOfPropertyChanged("Price");
+                NotifyOfPropertyChanged("Description");
             }
             get
             {

@@ -10,7 +10,7 @@ namespace DinoDiner.Menu
     /// Class Brontowurst represents the brontowurst menu item. 
     /// Per request if the customer chooses, the bun, peppers, and onion can be removed.
     /// </summary>
-    public class Brontowurst : Entree, IMenuItem
+    public class Brontowurst : Entree
     {
         private bool bun = true; // Whether the bun is included
         private bool peppers = true; // Whether peppers are included
@@ -32,6 +32,21 @@ namespace DinoDiner.Menu
         }
 
         /// <summary>
+        /// An array of all special mods to this order of a bronotowurst
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> specials = new List<string>();
+                if (!bun) specials.Add("Hold Bun");
+                if (!peppers) specials.Add("Hold Peppers");
+                if (!onions) specials.Add("Hold Onion");
+                return specials.ToArray();
+            }
+        }
+
+        /// <summary>
         /// Constructor for the brontowurst class, initializing price and calories
         /// </summary>
         public Brontowurst()
@@ -46,6 +61,8 @@ namespace DinoDiner.Menu
         public void HoldBun()
         {
             bun = false;
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>
@@ -54,6 +71,8 @@ namespace DinoDiner.Menu
         public void HoldPeppers()
         {
             peppers = false;
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>
@@ -62,6 +81,8 @@ namespace DinoDiner.Menu
         public void HoldOnion()
         {
             onions = false;
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>

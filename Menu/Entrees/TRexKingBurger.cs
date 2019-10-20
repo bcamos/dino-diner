@@ -10,7 +10,7 @@ namespace DinoDiner.Menu
     /// Class TRexKingBurger represents the menu item a T-Rex King Burger.
     /// Per request by the customer, the bun, lettuce, tomato, onion, pickles, ketchup, mustard, and mayo can be removed.
     /// </summary>
-    public class TRexKingBurger : Entree, IMenuItem
+    public class TRexKingBurger : Entree
     {
         private bool bun = true; // Whether the bun is included
         private bool lettuce = true; // Whether the lettuce is included
@@ -44,6 +44,26 @@ namespace DinoDiner.Menu
         }
 
         /// <summary>
+        /// A list containing all the accomodations to the T-Rex King Burger order
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> specials = new List<string>();
+                if (!bun) specials.Add("Hold Bun");
+                if (!lettuce) specials.Add("Hold Lettuce");
+                if (!tomato) specials.Add("Hold Tomato");
+                if (!onion) specials.Add("Hold Onion");
+                if (!pickle) specials.Add("Hold Pickle");
+                if (!ketchup) specials.Add("Hold Ketchup");
+                if (!mustard) specials.Add("Hold Mustard");
+                if (!mayo) specials.Add("Hold Mayo");
+                return specials.ToArray();
+            }
+        }
+
+        /// <summary>
         /// Default constructor which initializes price and calories
         /// </summary>
         public TRexKingBurger()
@@ -58,6 +78,8 @@ namespace DinoDiner.Menu
         public void HoldBun()
         {
             bun = false;
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>
@@ -66,6 +88,8 @@ namespace DinoDiner.Menu
         public void HoldLettuce()
         {
             lettuce = false;
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>
@@ -74,6 +98,8 @@ namespace DinoDiner.Menu
         public void HoldTomato()
         {
             tomato = false;
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>
@@ -82,6 +108,8 @@ namespace DinoDiner.Menu
         public void HoldOnion()
         {
             onion = false;
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>
@@ -90,6 +118,8 @@ namespace DinoDiner.Menu
         public void HoldPickle()
         {
             pickle = false;
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>
@@ -98,6 +128,8 @@ namespace DinoDiner.Menu
         public void HoldKetchup()
         {
             ketchup = false;
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>
@@ -106,6 +138,8 @@ namespace DinoDiner.Menu
         public void HoldMustard()
         {
             mustard = false;
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>
@@ -114,6 +148,8 @@ namespace DinoDiner.Menu
         public void HoldMayo()
         {
             mayo = false;
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>

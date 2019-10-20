@@ -8,7 +8,7 @@ namespace DinoDiner.Menu
     /// <summary>
     /// Class MeteorMacAndCheese represents the side and menu item Meteor Mac And Cheese
     /// </summary>
-    public class MeteorMacAndCheese : Side, IMenuItem
+    public class MeteorMacAndCheese : Side
     {
         private Size size;
 
@@ -35,6 +35,10 @@ namespace DinoDiner.Menu
                         Calories = 520;
                         break;
                 }
+                NotifyOfPropertyChanged("Size");
+                NotifyOfPropertyChanged("Calories");
+                NotifyOfPropertyChanged("Price");
+                NotifyOfPropertyChanged("Description");
             }
             get
             {

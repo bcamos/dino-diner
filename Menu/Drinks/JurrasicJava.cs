@@ -13,9 +13,10 @@ namespace DinoDiner.Menu
     /// <summary>
     /// Class JurassicJava represents the menu item JurassicJava which is coffee
     /// </summary>
-    public class JurassicJava : Drink, IMenuItem
+    public class JurassicJava : Drink
     {
         private Size size;
+        private bool decaf = false;
 
         /// <summary>
         /// Whether to leave room for cream or not
@@ -25,7 +26,19 @@ namespace DinoDiner.Menu
         /// <summary>
         /// Whether coffee is decaf or not
         /// </summary>
-        public bool Decaf { get; set; } = false;
+        public bool Decaf
+        {
+            get
+            {
+                return decaf;
+            }
+            set
+            {
+                decaf = value;
+                NotifyOfPropertyChanged("Decaf");
+                NotifyOfPropertyChanged("Description");
+            }
+        }
 
         /// <summary>
         /// The size of the coffee; adjusts price and calories as needed when changed.
@@ -56,6 +69,10 @@ namespace DinoDiner.Menu
                         Price = 1.49;
                         break;
                 }
+                NotifyOfPropertyChanged("Size");
+                NotifyOfPropertyChanged("Description");
+                NotifyOfPropertyChanged("Calories");
+                NotifyOfPropertyChanged("Price");
             }
         }
 
@@ -68,6 +85,20 @@ namespace DinoDiner.Menu
             {
                 return new List<string>() { "Water", "Coffee" };
             }                
+        }
+
+        /// <summary>
+        /// An array of the special accomodations to the jurrasic java order
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> specials = new List<string>();
+                if (RoomForCream) specials.Add("Leave Room For Cream");
+                if (Ice) specials.Add("Add Ice");
+                return specials.ToArray();
+            }
         }
         
 
@@ -86,6 +117,7 @@ namespace DinoDiner.Menu
         public void LeaveRoomForCream()
         {
             RoomForCream = true;
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>
@@ -94,6 +126,7 @@ namespace DinoDiner.Menu
         public void AddIce()
         {
             Ice = true;
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>

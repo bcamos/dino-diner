@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using Xunit;
-using DinoDiner.Menu.Entrees;
+using DinoDiner.Menu;
 
 namespace MenuTest.Entrees
 {
@@ -107,6 +107,57 @@ namespace MenuTest.Entrees
             Assert.DoesNotContain<string>("Mayo", trex.Ingredients);
         }
 
+        [Fact]
+        public void HoldingIngredientsShouldNotifyPropertyChangeSpecial()
+        {
+            TRexKingBurger tb = new TRexKingBurger();
+            Assert.PropertyChanged(tb, "Special", () =>
+            {
+                tb.HoldBun();
+            });
+
+            tb = new TRexKingBurger();
+            Assert.PropertyChanged(tb, "Special", () =>
+            {
+                tb.HoldKetchup();
+            });
+
+            tb = new TRexKingBurger();
+            Assert.PropertyChanged(tb, "Special", () =>
+            {
+                tb.HoldLettuce();
+            });
+
+            tb = new TRexKingBurger();
+            Assert.PropertyChanged(tb, "Special", () =>
+            {
+                tb.HoldMayo();
+            });
+
+            tb = new TRexKingBurger();
+            Assert.PropertyChanged(tb, "Special", () =>
+            {
+                tb.HoldMustard();
+            });
+
+            tb = new TRexKingBurger();
+            Assert.PropertyChanged(tb, "Special", () =>
+            {
+                tb.HoldOnion();
+            });
+
+            tb = new TRexKingBurger();
+            Assert.PropertyChanged(tb, "Special", () =>
+            {
+                tb.HoldPickle();
+            });
+
+            tb = new TRexKingBurger();
+            Assert.PropertyChanged(tb, "Special", () =>
+            {
+                tb.HoldTomato();
+            });
+        }
     }
 
 }

@@ -8,7 +8,7 @@ namespace DinoDiner.Menu
     /// <summary>
     /// Class MezzorellaSticks represents the side and menu item Mezzorella Sticks
     /// </summary>
-    public class MezzorellaSticks : Side, IMenuItem
+    public class MezzorellaSticks : Side
     {
         private Size size;
 
@@ -35,6 +35,10 @@ namespace DinoDiner.Menu
                         Calories = 720;
                         break;
                 }
+                NotifyOfPropertyChanged("Size");
+                NotifyOfPropertyChanged("Calories");
+                NotifyOfPropertyChanged("Price");
+                NotifyOfPropertyChanged("Description");
             }
             get
             {

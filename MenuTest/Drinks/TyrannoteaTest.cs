@@ -105,6 +105,51 @@ namespace DinoDiner.MenuTest.Drinks
             tea.Sweet = true;
             Assert.Contains<string>("Cane Sugar", tea.Ingredients);
         }
+
+        [Fact]
+        public void HoldingIceAndAddLemonShouldNotifyPropertyChangeSpecial()
+        {
+            Tyrannotea t = new Tyrannotea();
+            Assert.PropertyChanged(t, "Special", () =>
+            {
+                t.AddLemon();
+            });
+
+            t = new Tyrannotea();
+            Assert.PropertyChanged(t, "Special", () =>
+            {
+                t.HoldIce();
+            });
+        }
+
+        [Fact]
+        public void SweetShouldNotifyPropertyChangeDescription()
+        {
+            Tyrannotea t = new Tyrannotea();
+            Assert.PropertyChanged(t, "Description", () =>
+            {
+                t.Sweet = true;
+            });
+        }
+
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Large)]
+        public void ChangingSizeShouldNotifyPropertyChangePriceAndDescription(Size size)
+        {
+            Tyrannotea t = new Tyrannotea();
+            Assert.PropertyChanged(t, "Price", () =>
+            {
+                t.Size = size;
+            });
+
+            t = new Tyrannotea();
+            Assert.PropertyChanged(t, "Description", () =>
+            {
+                t.Size = size;
+            });
+        }
     }
 
 }

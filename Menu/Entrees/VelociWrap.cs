@@ -10,7 +10,7 @@ namespace DinoDiner.Menu
     /// Class VelociWrap represent the menu item Veloci Wrap.
     /// Per request by the customer, the dressing, lettuce, and cheese can be removed
     /// </summary>
-    public class VelociWrap : Entree, IMenuItem
+    public class VelociWrap : Entree
     {
         private bool dressing = true; // Whether the dressing is included
         private bool lettuce = true; // Whether the lettuce is included
@@ -32,6 +32,21 @@ namespace DinoDiner.Menu
         }
 
         /// <summary>
+        /// A list containing all the special accomodations to the veloci wrap order
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> specials = new List<string>();
+                if (!dressing) specials.Add("Hold Dressing");
+                if (!lettuce) specials.Add("Hold Lettuce");
+                if (!cheese) specials.Add("Hold Cheese");
+                return specials.ToArray();
+            }
+        }
+
+        /// <summary>
         /// Default constructor which initializes the price and calories
         /// </summary>
         public VelociWrap()
@@ -46,6 +61,8 @@ namespace DinoDiner.Menu
         public void HoldDressing()
         {
             dressing = false;
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>
@@ -54,6 +71,8 @@ namespace DinoDiner.Menu
         public void HoldLettuce()
         {
             lettuce = false;
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>
@@ -62,6 +81,8 @@ namespace DinoDiner.Menu
         public void HoldCheese()
         {
             cheese = false;
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>
