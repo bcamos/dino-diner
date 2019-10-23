@@ -15,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DinoDiner.Menu;
 
 namespace PointOfSale
 {
@@ -23,9 +24,38 @@ namespace PointOfSale
     /// </summary>
     public partial class EntreeSelection : Page
     {
+        private Entree entree;
+
         public EntreeSelection()
         {
             InitializeComponent();
-        }        
+        }
+
+        private void SelectBrontowurst(object sender, RoutedEventArgs args)
+        {
+            if (DataContext is Order order)
+            {
+                entree = new Brontowurst();
+                order.Items.Add(entree);
+            }
+        }
+
+        private void SelectSteakosaurusBurger(object sender, RoutedEventArgs args)
+        {
+            if (DataContext is Order order)
+            {
+                entree = new Brontowurst();
+                order.Items.Add(entree);
+            }
+        }
+
+        private void SelectPterodacytlWings(object sender, RoutedEventArgs args)
+        {
+            if (DataContext is Order order)
+            {
+                entree = new Brontowurst();
+                order.Items.Add(entree);
+            }
+        }
     }
 }

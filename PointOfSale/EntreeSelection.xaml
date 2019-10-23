@@ -70,7 +70,7 @@
             <Label FontSize="40" VerticalAlignment="Center" FontWeight="Bold" Margin="30">Entrees</Label>
             <StackPanel>
                 <Label>+ Brontowurst</Label>
-                <Button>
+                <Button Click="SelectBrontowurst">
                     <Button.Background>
                         <ImageBrush ImageSource="Images/DinoDiner-01.png"/>
                     </Button.Background>

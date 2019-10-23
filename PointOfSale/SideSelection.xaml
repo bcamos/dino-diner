@@ -40,7 +40,7 @@
             <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Center">
                 <StackPanel>
                     <Label>+ Fryceritops</Label>
-                    <Button>
+                    <Button Click="SelectFryceritots">
                         <Button.Background>
                             <ImageBrush ImageSource="Images/DinoDiner-08.png"/>
                         </Button.Background>
@@ -49,7 +49,7 @@
                 <Label HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="40" FontWeight="Bold" Margin="30">Sides</Label>
                 <StackPanel>
                     <Label>+ Meteor Mac &amp; Cheese</Label>
-                    <Button>
+                    <Button Click="SelectMeteorMacAndCheese">
                         <Button.Background>
                             <ImageBrush ImageSource="Images/DinoDiner-09.png"/>
                         </Button.Background>
@@ -59,15 +59,15 @@
             <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Center">
                 <StackPanel>
                     <Label>+ Triceritots</Label>
-                    <Button>
+                    <Button Click="SelectTriceritots">
                         <Button.Background>
                             <ImageBrush ImageSource="Images/DinoDiner-11.png"/>
                         </Button.Background>
                     </Button>
                 </StackPanel>
                 <StackPanel>
-                    <Label>+ Mozzerella Sticks</Label>
-                    <Button>
+                    <Label>+ Mezzorella Sticks</Label>
+                    <Button Click="SelectMezzorellaSticks">
                         <Button.Background>
                             <ImageBrush ImageSource="Images/DinoDiner-10.png"/>
                         </Button.Background>
@@ -91,9 +91,9 @@
                     <Setter Property="FontSize" Value="20"/>
                 </Style>
             </Grid.Resources>
-            <RadioButton>Small</RadioButton>
-            <RadioButton Grid.Column="1" FontWeight="Bold">Medium</RadioButton>
-            <RadioButton Grid.Column="2" FontWeight="Black">Large</RadioButton>
+            <RadioButton Tag="Small" Click="OnChangeSize">Small</RadioButton>
+            <RadioButton Grid.Column="1" FontWeight="Bold" Tag="Medium" Click="OnChangeSize">Medium</RadioButton>
+            <RadioButton Grid.Column="2" FontWeight="Black" Tag="Large" Click="OnChangeSize">Large</RadioButton>
         </Grid>        
     </Grid>
 </Page>
