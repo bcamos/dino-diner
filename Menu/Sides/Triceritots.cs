@@ -67,6 +67,10 @@ namespace DinoDiner.Menu
             Calories = 352;           
         }
 
+        /// <summary>
+        /// Returns a string that this is a triceritots
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             return Size.ToString() + " Triceritots";

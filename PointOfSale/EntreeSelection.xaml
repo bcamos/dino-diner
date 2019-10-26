@@ -35,7 +35,7 @@
         <StackPanel Grid.Row="0" Orientation="Horizontal">
             <StackPanel>
                 <Label>+ Steakosaurus Burger</Label>
-                <Button>
+                <Button Click="SelectSteakosaurusBurger">
                     <Button.Background>
                         <ImageBrush ImageSource="Images/DinoDiner-05.png"/>
                     </Button.Background>
@@ -43,7 +43,7 @@
             </StackPanel>            
             <StackPanel>
                 <Label>+ Pterodactyl Wings</Label>
-                <Button>
+                <Button Click="SelectPterodacytlWings">
                     <Button.Background>
                         <ImageBrush ImageSource="Images/DinoDiner-04.png"/>
                     </Button.Background>
@@ -51,7 +51,7 @@
             </StackPanel>
             <StackPanel>
                 <Label>+ T-Rex King Burger</Label>
-                <Button>
+                <Button Click="SelectTRexKingBurger">
                     <Button.Background>
                         <ImageBrush ImageSource="Images/DinoDiner-06.png"/>
                     </Button.Background>
@@ -61,7 +61,7 @@
         <StackPanel Grid.Row="1" Orientation="Horizontal">
             <StackPanel>
                 <Label>+ Dino-Nuggets</Label>
-                <Button>
+                <Button Click="SelectDinoNuggets">
                     <Button.Background>
                         <ImageBrush ImageSource="Images/DinoDiner-02.png"/>
                     </Button.Background>
@@ -80,7 +80,7 @@
         <StackPanel Grid.Row="2" Orientation="Horizontal">
             <StackPanel>
                 <Label>+ Prehistoric PB&amp;J</Label>
-                <Button>
+                <Button Click="SelectPBJ">
                     <Button.Background>
                         <ImageBrush ImageSource="Images/DinoDiner-03.png"/>
                     </Button.Background>
@@ -88,7 +88,7 @@
             </StackPanel>
             <StackPanel>
                 <Label>+ Veloci-Wrap</Label>
-                <Button>
+                <Button Click="SelectVelociWrap">
                     <Button.Background>
                         <ImageBrush ImageSource="Images/DinoDiner-07.png"/>
                     </Button.Background>

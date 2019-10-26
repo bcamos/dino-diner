@@ -15,6 +15,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DinoDiner.Menu;
+using DDSize = DinoDiner.Menu.Size;
 
 namespace PointOfSale
 {
@@ -23,9 +25,21 @@ namespace PointOfSale
     /// </summary>
     public partial class DrinkSelection : Page
     {
+        private Drink drink;
+
         public DrinkSelection()
         {
             InitializeComponent();
+        }
+
+        /// <summary>
+        /// Constructor which initializes drink
+        /// </summary>
+        /// <param name="drink"></param>
+        public DrinkSelection(Drink drink)
+        {
+            InitializeComponent();
+            this.drink = drink;
         }
 
         /// <summary>
@@ -35,12 +49,18 @@ namespace PointOfSale
         /// <param name="args"></param>
         public void SelectSodasaurus_Click(object sender, RoutedEventArgs args)
         {
-            uxDynamicButtonPanel.Children.Clear();            
-            uxDynamicButtonPanel.Children.Add(AddSodaflavorButton());
-            uxDynamicButtonPanel.Children.Add(AddHoldIceButton());
+            if(DataContext is Order order)
+            {
+                drink = new Sodasaurus();
+                order.Add(drink);
+                uxDynamicButtonPanel.Children.Clear();
+                uxDynamicButtonPanel.Children.Add(AddSodaflavorButton());
+                uxDynamicButtonPanel.Children.Add(AddHoldIceButton());
+                uxDynamicButtonPanel.Children.Add(AddDoneButton());
 
-            ResetLabels();
-            uxSodasaurusLabel.Content = "* Sodasaurus";
+                ResetLabels();
+                uxSodasaurusLabel.Content = "* Sodasaurus";
+            }            
         }
 
         /// <summary>
@@ -49,14 +69,19 @@ namespace PointOfSale
         /// <param name="sender">The Tyrannotea button</param>
         /// <param name="args"></param>
         public void SelectTyrannotea_Click(object sender, RoutedEventArgs args)
-        {
-            uxDynamicButtonPanel.Children.Clear();
-            uxDynamicButtonPanel.Children.Add(AddSweetButton());
-            uxDynamicButtonPanel.Children.Add(AddAddLemonButton());
-            uxDynamicButtonPanel.Children.Add(AddHoldIceButton());
-
-            ResetLabels();
-            uxTyrannoteaLabel.Content = "* Tyrannotea";
+        {            
+            if(DataContext is Order order)
+            {
+                drink = new Tyrannotea();
+                order.Add(drink);
+                uxDynamicButtonPanel.Children.Clear();
+                uxDynamicButtonPanel.Children.Add(AddSweetButton());
+                uxDynamicButtonPanel.Children.Add(AddAddLemonButton());
+                uxDynamicButtonPanel.Children.Add(AddHoldIceButton());
+                uxDynamicButtonPanel.Children.Add(AddDoneButton());
+                ResetLabels();
+                uxTyrannoteaLabel.Content = "* Tyrannotea";
+            }
         }
 
         /// <summary>
@@ -66,12 +91,18 @@ namespace PointOfSale
         /// <param name="args"></param>
         public void SelectJurrasicJava_Click(object sender, RoutedEventArgs args)
         {
-            uxDynamicButtonPanel.Children.Clear();
-            uxDynamicButtonPanel.Children.Add(AddDecafButton());
-            uxDynamicButtonPanel.Children.Add(AddAddIceButton());
+            if(DataContext is Order order)
+            {
+                drink = new JurassicJava();
+                order.Add(drink);
+                uxDynamicButtonPanel.Children.Clear();
+                uxDynamicButtonPanel.Children.Add(AddDecafButton());
+                uxDynamicButtonPanel.Children.Add(AddAddIceButton());
+                uxDynamicButtonPanel.Children.Add(AddDoneButton());
 
-            ResetLabels();
-            uxJurrasicJavaLabel.Content = "* Jurrasic Java";
+                ResetLabels();
+                uxJurrasicJavaLabel.Content = "* Jurrasic Java";
+            }            
         }
 
         /// <summary>
@@ -81,12 +112,19 @@ namespace PointOfSale
         /// <param name="args"></param>
         public void SelectWater_Click(object sender, RoutedEventArgs args)
         {
-            uxDynamicButtonPanel.Children.Clear();
-            uxDynamicButtonPanel.Children.Add(AddAddLemonButton());
-            uxDynamicButtonPanel.Children.Add(AddHoldIceButton());
+            if(DataContext is Order order)
+            {
+                drink = new Water();
+                order.Add(drink);
 
-            ResetLabels();
-            uxWaterLabel.Content = "* Water";
+                uxDynamicButtonPanel.Children.Clear();
+                uxDynamicButtonPanel.Children.Add(AddAddLemonButton());
+                uxDynamicButtonPanel.Children.Add(AddHoldIceButton());
+                uxDynamicButtonPanel.Children.Add(AddDoneButton());
+
+                ResetLabels();
+                uxWaterLabel.Content = "* Water";
+            }            
         }
 
         /// <summary>
@@ -96,7 +134,96 @@ namespace PointOfSale
         /// <param name="args"></param>
         public void SelectFlavor_Click(object sender, RoutedEventArgs args)
         {
-            NavigationService.Navigate(new FlavorSelection());
+            NavigationService.Navigate(new FlavorSelection(drink));
+        }
+
+        /// <summary>
+        /// Return to the menu category selection screen
+        /// </summary>
+        /// <param name="sender">The done button</param>
+        /// <param name="args"></param>
+        public void SelectDone_Click(object sender, RoutedEventArgs args)
+        {
+            NavigationService.GoBack();
+        }
+
+        /// <summary>
+        /// Hold ice for the drink
+        /// </summary>
+        /// <param name="sender">The hold ice button</param>
+        /// <param name="args"></param>
+        public void SelectHoldIce_Click(object sender, RoutedEventArgs args)
+        {
+            drink.HoldIce();
+        }
+
+        /// <summary>
+        /// Add ice for a jurrasic java
+        /// </summary>
+        /// <param name="sender">Add ice button</param>
+        /// <param name="args"></param>
+        public void SelectAddIce_Click(object sender, RoutedEventArgs args)
+        {
+            if(drink is JurassicJava j)
+            {
+                j.AddIce();
+            }            
+        }
+
+        /// <summary>
+        /// Set the jurrasic java to decaf
+        /// </summary>
+        /// <param name="sender">The decaf button</param>
+        /// <param name="args"></param>
+        public void SelectDecaf_Click(object sender, RoutedEventArgs args)
+        {
+            if(drink is JurassicJava j)
+            {
+                j.Decaf = true;
+            }            
+        }
+
+        /// <summary>
+        /// Set the tyrannotea to sweet
+        /// </summary>
+        /// <param name="sender">The sweet button</param>
+        /// <param name="args"></param>
+        public void SelectSweet_Click(object sender, RoutedEventArgs args)
+        {
+            if(drink is Tyrannotea t)
+            {
+                t.Sweet = true;
+            }           
+        }
+
+        /// <summary>
+        /// Add a lemon to either the water or the tyrannotea
+        /// </summary>
+        /// <param name="sender">Add lemon button</param>
+        /// <param name="args"></param>
+        public void SelectAddLemon_Click(object sender, RoutedEventArgs args)
+        {
+            if(drink is Water w)
+            {
+                w.AddLemon();
+            }
+            else if(drink is Tyrannotea t)
+            {
+                t.AddLemon();
+            }
+        }
+
+        /// <summary>
+        /// Change the size of the drink
+        /// </summary>
+        /// <param name="sender">A size button</param>
+        /// <param name="args"></param>
+        private void OnChangeSize(object sender, RoutedEventArgs args)
+        {
+            if (sender is FrameworkElement element)
+            {
+                drink.Size = (DDSize)Enum.Parse(typeof(DDSize), element.Tag.ToString());
+            }
         }
 
         /// <summary>
@@ -131,6 +258,7 @@ namespace PointOfSale
         {
             Button b = new Button();
             b.Content = "- Hold Ice";
+            b.Click += new RoutedEventHandler(SelectHoldIce_Click);
             b.Background = new SolidColorBrush(Colors.White);
             return b;
         }
@@ -143,6 +271,7 @@ namespace PointOfSale
         {
             Button b = new Button();
             b.Content = "+ Add Ice";
+            b.Click += new RoutedEventHandler(SelectAddIce_Click);
             b.Background = new SolidColorBrush(Colors.White);
             return b;
         }
@@ -155,6 +284,7 @@ namespace PointOfSale
         {
             Button b = new Button();
             b.Content = "+ Decaf";
+            b.Click += new RoutedEventHandler(SelectDecaf_Click);
             b.Background = new SolidColorBrush(Colors.SaddleBrown);
             return b;
         }
@@ -167,6 +297,7 @@ namespace PointOfSale
         {
             Button b = new Button();
             b.Content = "+ Sweet";
+            b.Click += new RoutedEventHandler(SelectSweet_Click);
             b.Background = new SolidColorBrush(Colors.LightPink);
             return b;
         }
@@ -179,8 +310,22 @@ namespace PointOfSale
         {
             Button b = new Button();
             b.Content = "+ Add Lemon";
+            b.Click += new RoutedEventHandler(SelectAddLemon_Click);
             b.Background = new SolidColorBrush(Colors.Yellow);
             return b;
-        }       
+        }
+
+        /// <summary>
+        /// Add a done button
+        /// </summary>
+        /// <returns>Done button</returns>
+        private Button AddDoneButton()
+        {
+            Button b = new Button();
+            b.Content = "Done";
+            b.Click += new RoutedEventHandler(SelectDone_Click);
+            b.Background = new SolidColorBrush(Colors.IndianRed);
+            return b;
+        }
     }
 }

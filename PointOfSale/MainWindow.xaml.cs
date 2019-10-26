@@ -30,8 +30,12 @@ namespace PointOfSale
             Order order = new Order(.24);
             
             DataContext = order;
+            OrderList.NavigationService = OrderUI.NavigationService;
         }
 
+        /// <summary>
+        /// Keep track of the order in data in each page
+        /// </summary>
         private void PassDataContentToPage()
         {
             if(OrderUI.Content is Page page)
@@ -40,11 +44,21 @@ namespace PointOfSale
             }
         }
 
+        /// <summary>
+        /// Pass data to page when the page is loaded
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         private void OnLoadCompleted(object sender, NavigationEventArgs args)
         {
             PassDataContentToPage();
         }
 
+        /// <summary>
+        /// Pass data to page when the data context is changed
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         private void OnDataContextChanged(object sender, DependencyPropertyChangedEventArgs args)
         {
             PassDataContentToPage();

@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="550" Width="950">
     <DockPanel>
-        <local:OrderList DockPanel.Dock="Right" Width="200" Background="LightSteelBlue"></local:OrderList>
+        <local:OrderList DockPanel.Dock="Right" Width="200" Background="LightSteelBlue" x:Name="OrderList"></local:OrderList>
         
         <Frame Source="MenuCategorySelection.xaml" Name="OrderUI" LoadCompleted="OnLoadCompleted" DataContextChanged="OnDataContextChanged"></Frame>
     </DockPanel>

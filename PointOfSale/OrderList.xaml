@@ -22,9 +22,16 @@
         <ListBox Grid.Row="1" Grid.ColumnSpan="2" ItemsSource="{Binding Path=Items}" SelectionChanged="OnSelectionChanged" Name="OrderItems">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel>
-                        <TextBlock Text="{Binding Path=Description}"/>
-                        <ListBox ItemsSource="{Binding Path=Special}" BorderBrush="White"/>
+                    <StackPanel MinWidth="180">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="20"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Button Click="RemoveItem" Background="Red" Foreground="White">X</Button>
+                            <TextBlock Grid.Column="1" Text="{Binding Path=Description}" Margin="5,0,0,0"/>
+                        </Grid>                                               
+                        <ListBox ItemsSource="{Binding Path=Special}" BorderBrush="White" Margin="20,0,0,0"/>                        
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
