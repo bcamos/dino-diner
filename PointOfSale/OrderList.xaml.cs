@@ -68,6 +68,10 @@ namespace PointOfSale
             {
                 NavigationService?.Navigate(new CustomizeEntree(entree, (Page)NavigationService.Content));
             }
+            else if(OrderItems.SelectedItem is CretaceousCombo combo)
+            {
+                NavigationService?.Navigate(new CustomizeCombo(combo));
+            }
         }
     }
 }

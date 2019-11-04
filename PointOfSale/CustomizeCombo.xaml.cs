@@ -40,13 +40,18 @@ namespace PointOfSale
         {
             InitializeComponent();
             this.combo = combo;
-            EntreeLabel.Content = combo.Entree.ToString();
-            DrinkLabel.Content = combo.Drink.ToString();
-            SideLabel.Content = combo.Side.ToString();
+            UpdateLabels();
 
             SetButtonBackground(EntreeButton, combo.Entree.ImagePath);
             SetButtonBackground(SideButton, combo.Side.ImagePath);
             SetButtonBackground(DrinkButton, combo.Drink.ImagePath);
+        }
+
+        private void UpdateLabels()
+        {
+            EntreeLabel.Content = combo.Entree.ToString();
+            DrinkLabel.Content = combo.Drink.ToString();
+            SideLabel.Content = combo.Side.ToString();
         }
 
         /// <summary>
@@ -67,7 +72,7 @@ namespace PointOfSale
         /// <param name="args"></param>
         public void SelectCustomizeEntree_Click(object sender, RoutedEventArgs args)
         {
-            NavigationService.Navigate(new CustomizeEntree(combo.Entree, (Page)NavigationService.Content));
+            NavigationService.Navigate(new CustomizeEntree(combo, (Page)NavigationService.Content));
         }
 
         /// <summary>
@@ -100,6 +105,7 @@ namespace PointOfSale
             if(sender is RadioButton b)
             {
                 combo.Size = (DinoDiner.Menu.Size)Enum.Parse(typeof(DinoDiner.Menu.Size), b.Tag.ToString());
+                UpdateLabels();
             }
         }
     }

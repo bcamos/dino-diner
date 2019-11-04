@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 using DinoDiner.Menu;
 using Xunit;
@@ -20,6 +21,8 @@ namespace MenuTest
             {
                 Price = price;
             }
+
+            public event PropertyChangedEventHandler PropertyChanged;
         }
 
         [Theory]
@@ -29,10 +32,10 @@ namespace MenuTest
         public void ShouldHaveCorrectSubtotal(double price1, double price2, double price3, double price4, double sum)
         {
             Order o = new Order(0);
-            o.Items.Add(new MockOrderItem(price1));
-            o.Items.Add(new MockOrderItem(price2));
-            o.Items.Add(new MockOrderItem(price3));
-            o.Items.Add(new MockOrderItem(price4));
+            o.Add(new MockOrderItem(price1));
+            o.Add(new MockOrderItem(price2));
+            o.Add(new MockOrderItem(price3));
+            o.Add(new MockOrderItem(price4));
             Assert.Equal(sum, o.SubtotalCost, 2);
         }
 
@@ -40,8 +43,8 @@ namespace MenuTest
         public void SubtotalShouldNotBeNegative()
         {
             Order o = new Order(0);
-            o.Items.Add(new MockOrderItem(-1.0));
-            o.Items.Add(new MockOrderItem(-5.0));
+            o.Add(new MockOrderItem(-1.0));
+            o.Add(new MockOrderItem(-5.0));
             Assert.Equal(0.00, o.SubtotalCost, 2);
         }
 
@@ -52,10 +55,10 @@ namespace MenuTest
         public void ShouldHaveCorrectSalesTaxTotal(double price1, double price2, double price3, double price4, double rate, double expect)
         {
             Order o = new Order(rate);
-            o.Items.Add(new MockOrderItem(price1));
-            o.Items.Add(new MockOrderItem(price2));
-            o.Items.Add(new MockOrderItem(price3));
-            o.Items.Add(new MockOrderItem(price4));
+            o.Add(new MockOrderItem(price1));
+            o.Add(new MockOrderItem(price2));
+            o.Add(new MockOrderItem(price3));
+            o.Add(new MockOrderItem(price4));
             Assert.Equal(expect, o.SalesTaxCost, 3);
         }
 
@@ -66,10 +69,10 @@ namespace MenuTest
         public void ShouldHaveCorrectTotalCost(double price1, double price2, double price3, double price4, double rate, double expect)
         {
             Order o = new Order(rate);
-            o.Items.Add(new MockOrderItem(price1));
-            o.Items.Add(new MockOrderItem(price2));
-            o.Items.Add(new MockOrderItem(price3));
-            o.Items.Add(new MockOrderItem(price4));
+            o.Add(new MockOrderItem(price1));
+            o.Add(new MockOrderItem(price2));
+            o.Add(new MockOrderItem(price3));
+            o.Add(new MockOrderItem(price4));
             Assert.Equal(expect, o.TotalCost, 3);
         }
     }

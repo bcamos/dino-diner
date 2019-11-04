@@ -24,6 +24,7 @@ namespace PointOfSale
     /// </summary>
     public partial class CustomizeEntree : Page
     {
+        CretaceousCombo combo;
         Entree entree;
         Page nextPage;
 
@@ -37,28 +38,51 @@ namespace PointOfSale
             InitializeComponent();
             this.nextPage = nextPage;
             this.entree = entree;
+            SetupScreen(entree);
+        }
+
+        /// <summary>
+        /// Initializes the combo and entree and makes the correct setup
+        /// </summary>
+        /// <param name="combo"></param>
+        /// <param name="nextPage"></param>
+        public CustomizeEntree(CretaceousCombo combo, Page nextPage)
+        {
+            InitializeComponent();
+            this.nextPage = nextPage;
+            this.combo = combo;
+            this.entree = combo.Entree;
+            SetupScreen(entree);
+        }
+
+        /// <summary>
+        /// Sets the design appropriately for the entree
+        /// </summary>
+        /// <param name="entree"></param>
+        private void SetupScreen(Entree entree)
+        {
             EntreeImage.Source = new BitmapImage(new Uri(entree.ImagePath, UriKind.Relative));
             if (entree is Brontowurst b)
             {
                 BrontowurstSetup();
             }
-            else if(entree is DinoNuggets dn)
+            else if (entree is DinoNuggets dn)
             {
                 DinoNuggetsSetup();
             }
-            else if(entree is PrehistoricPBJ pbj)
+            else if (entree is PrehistoricPBJ pbj)
             {
                 PrehistoricPBJSetup();
-            }            
-            else if(entree is SteakosaurusBurger sb)
+            }
+            else if (entree is SteakosaurusBurger sb)
             {
                 SteakosaurusBurgerSetup();
             }
-            else if(entree is TRexKingBurger tb)
+            else if (entree is TRexKingBurger tb)
             {
                 TRexKingBurgerSetup();
             }
-            else if(entree is VelociWrap vw)
+            else if (entree is VelociWrap vw)
             {
                 VelociWrapSetup();
             }
@@ -143,6 +167,17 @@ namespace PointOfSale
             CustomizeEntreeButtons.Children.Add(HoldLettuceButton());
             CustomizeEntreeButtons.Children.Add(HoldCheeseButton());
             CustomizeEntreeButtons.Children.Add(HoldDressingButton());            
+        }
+
+        /// <summary>
+        /// Updates the combo when changes have happened to the entree
+        /// </summary>
+        private void UpdateCombo()
+        {
+            if(combo != null)
+            {
+                combo.NotifyOfAllPropertyChanges();
+            }
         }
 
         /// <summary>
@@ -399,6 +434,7 @@ namespace PointOfSale
             {
                 tb.HoldBun();
             }
+            UpdateCombo();
         }
 
         /// <summary>
@@ -416,6 +452,7 @@ namespace PointOfSale
             {
                 tb.HoldOnion();
             }
+            UpdateCombo();
         }
 
         /// <summary>
@@ -428,7 +465,8 @@ namespace PointOfSale
             if(entree is Brontowurst b)
             {
                 b.HoldPeppers();
-            }                    
+            }
+            UpdateCombo();
         }
 
         /// <summary>
@@ -448,6 +486,7 @@ namespace PointOfSale
                     }
                 }
             }
+            UpdateCombo();
         }
 
         /// <summary>
@@ -461,6 +500,7 @@ namespace PointOfSale
             {
                 pbj.HoldJelly();
             }
+            UpdateCombo();
         }
 
         /// <summary>
@@ -474,6 +514,7 @@ namespace PointOfSale
             {
                 pbj.HoldPeanutButter();
             }
+            UpdateCombo();
         }
 
         /// <summary>
@@ -491,6 +532,7 @@ namespace PointOfSale
             {
                 tb.HoldKetchup();
             }
+            UpdateCombo();
         }
 
         /// <summary>
@@ -508,6 +550,7 @@ namespace PointOfSale
             {
                 tb.HoldMustard();
             }
+            UpdateCombo();
         }
 
         /// <summary>
@@ -525,6 +568,7 @@ namespace PointOfSale
             {
                 tb.HoldPickle();
             }
+            UpdateCombo();
         }
 
         /// <summary>
@@ -542,6 +586,7 @@ namespace PointOfSale
             {
                 vw.HoldLettuce();
             }
+            UpdateCombo();
         }
 
         /// <summary>
@@ -555,6 +600,7 @@ namespace PointOfSale
             {
                 tb.HoldMayo();
             }
+            UpdateCombo();
         }
 
         /// <summary>
@@ -568,6 +614,7 @@ namespace PointOfSale
             {
                 tb.HoldTomato();
             }
+            UpdateCombo();
         }
 
         /// <summary>
@@ -581,6 +628,7 @@ namespace PointOfSale
             {
                 vw.HoldCheese();
             }
+            UpdateCombo();
         }
 
         /// <summary>
@@ -594,6 +642,7 @@ namespace PointOfSale
             {
                 vw.HoldDressing();
             }
+            UpdateCombo();
         }
     }
 }

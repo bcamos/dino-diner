@@ -20,38 +20,30 @@
         <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
             <StackPanel.Resources>
                 <Style TargetType="Button">
-                    <Setter Property="Width" Value="220"/>
-                    <Setter Property="Height" Value="200"/>
+                    <Setter Property="Width" Value="180"/>
+                    <Setter Property="Height" Value="180"/>
                     <Setter Property="Margin" Value="3"/>
                     <Setter Property="FontSize" Value="30"/>
                 </Style>
                 <Style TargetType="Label">
                     <Setter Property="HorizontalAlignment" Value="Center"/>
-                    <Setter Property="FontSize" Value="20"/>
+                    <Setter Property="FontSize" Value="17"/>
                     <Setter Property="FontWeight" Value="Bold"/>
                 </Style>
             </StackPanel.Resources>
-            <StackPanel Margin="10">
+            <StackPanel Margin="5">
                 <Label>-+Customize Entree</Label>
                 <Button Name="EntreeButton" Click="SelectCustomizeEntree_Click"></Button>
                 <Label Name="EntreeLabel">Entree</Label>
             </StackPanel>
-            <StackPanel Margin="10">
+            <StackPanel Margin="5">
                 <Label>-+Switch Side</Label>
-                <Button Name="SideButton" Click="SelectSide_Click">
-                    <Button.Background>
-                        <ImageBrush ImageSource="Images/DinoDiner-08.png"/>
-                    </Button.Background>
-                </Button>
+                <Button Name="SideButton" Click="SelectSide_Click"></Button>
                 <Label Name="SideLabel">* Friceritops</Label>
             </StackPanel>
-            <StackPanel Margin="10">
+            <StackPanel Margin="5">
                 <Label>-+Switch Drink</Label>
-                <Button Name="DrinkButton" Click="SelectDrink_Click">
-                    <Button.Background>
-                        <ImageBrush ImageSource="Images/DinoDiner-14.png"/>
-                    </Button.Background>
-                </Button>
+                <Button Name="DrinkButton" Click="SelectDrink_Click"></Button>
                 <Label Name="DrinkLabel">* Sodasaurus</Label>
             </StackPanel>
         </StackPanel>

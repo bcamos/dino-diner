@@ -27,10 +27,13 @@ namespace PointOfSale
     {
         private Drink drink;
         private CretaceousCombo combo;
+        private DDSize size;
 
         public DrinkSelection()
         {
             InitializeComponent();
+            size = DDSize.Small;
+            SmallButton.IsChecked = true;
         }
 
         /// <summary>
@@ -41,17 +44,26 @@ namespace PointOfSale
         {
             InitializeComponent();
             this.drink = drink;
+            size = drink.Size;
             ButtonSetup();
         } 
 
+        /// <summary>
+        /// Construcctor which intializes combo and drink
+        /// </summary>
+        /// <param name="combo"></param>
         public DrinkSelection(CretaceousCombo combo)
         {
             InitializeComponent();
             this.combo = combo;
             this.drink = combo.Drink;
+            size = drink.Size;
             ButtonSetup();
         }
 
+        /// <summary>
+        /// Setup buttons for the appropriate drink and check correct size button
+        /// </summary>
         private void ButtonSetup()
         {
             if (drink is Sodasaurus s)
@@ -85,6 +97,9 @@ namespace PointOfSale
             }
         }
 
+        /// <summary>
+        /// Setup buttons for sodasaurus
+        /// </summary>
         private void SodasaurusSetup()
         {
             uxDynamicButtonPanel.Children.Clear();
@@ -95,6 +110,9 @@ namespace PointOfSale
             uxSodasaurusLabel.Content = "* Sodasaurus";
         }
 
+        /// <summary>
+        /// Setup buttons for tyrannotea
+        /// </summary>
         private void TyrannoteaSetup()
         {
             uxDynamicButtonPanel.Children.Clear();
@@ -106,6 +124,9 @@ namespace PointOfSale
             uxTyrannoteaLabel.Content = "* Tyrannotea";
         }
 
+        /// <summary>
+        /// Setup buttons for jurrasic java
+        /// </summary>
         private void JurrasicJavaSetup()
         {
             uxDynamicButtonPanel.Children.Clear();
@@ -116,6 +137,9 @@ namespace PointOfSale
             uxJurrasicJavaLabel.Content = "* Jurrasic Java";
         }
 
+        /// <summary>
+        /// Setup buttons for water
+        /// </summary>
         private void WaterSetup()
         {
             uxDynamicButtonPanel.Children.Clear();
@@ -127,6 +151,17 @@ namespace PointOfSale
         }
 
         /// <summary>
+        /// Updates the combo of changes to the drink: notifying of changes
+        /// </summary>
+        private void UpdateCombo()
+        {
+            if(combo != null)
+            {
+                combo.Drink = drink;
+            }            
+        }
+
+        /// <summary>
         /// When the Sodasaurus is clicked, it adds a button for the flavor and whether to hold ice
         /// </summary>
         /// <param name="sender">The Sodasaurus button</param>
@@ -134,9 +169,17 @@ namespace PointOfSale
         public void SelectSodasaurus_Click(object sender, RoutedEventArgs args)
         {
             if(DataContext is Order order)
-            {
+            {                
                 drink = new Sodasaurus();
-                order.Add(drink);
+                drink.Size = size;
+                if (combo == null)
+                {
+                    order.Add(drink);
+                }
+                else
+                {
+                    combo.Drink = drink;
+                }                
                 SodasaurusSetup();
             }            
         }
@@ -151,7 +194,15 @@ namespace PointOfSale
             if(DataContext is Order order)
             {
                 drink = new Tyrannotea();
-                order.Add(drink);
+                drink.Size = size;
+                if(combo == null)
+                {
+                    order.Add(drink);
+                }
+                else
+                {
+                    combo.Drink = drink;
+                }
                 TyrannoteaSetup();
             }
         }
@@ -166,7 +217,15 @@ namespace PointOfSale
             if(DataContext is Order order)
             {
                 drink = new JurassicJava();
-                order.Add(drink);
+                drink.Size = size;
+                if (combo == null)
+                {
+                    order.Add(drink);
+                }
+                else
+                {
+                    combo.Drink = drink;
+                }                
                 JurrasicJavaSetup();
             }            
         }
@@ -181,7 +240,15 @@ namespace PointOfSale
             if(DataContext is Order order)
             {
                 drink = new Water();
-                order.Add(drink);
+                drink.Size = size;
+                if(combo == null)
+                {
+                    order.Add(drink);
+                }
+                else
+                {
+                    combo.Drink = drink;
+                }                
                 WaterSetup();
             }            
         }
@@ -193,7 +260,14 @@ namespace PointOfSale
         /// <param name="args"></param>
         public void SelectFlavor_Click(object sender, RoutedEventArgs args)
         {
-            NavigationService.Navigate(new FlavorSelection(drink));
+            if(combo == null)
+            {
+                NavigationService.Navigate(new FlavorSelection(drink));
+            }
+            else
+            {
+                NavigationService.Navigate(new FlavorSelection(combo));
+            }
         }
 
         /// <summary>
@@ -203,7 +277,14 @@ namespace PointOfSale
         /// <param name="args"></param>
         public void SelectDone_Click(object sender, RoutedEventArgs args)
         {
-            NavigationService.GoBack();
+            if(combo == null)
+            {
+                NavigationService.GoBack();
+            }
+            else
+            {
+                NavigationService.Navigate(new CustomizeCombo(combo));
+            }            
         }
 
         /// <summary>
@@ -214,6 +295,7 @@ namespace PointOfSale
         public void SelectHoldIce_Click(object sender, RoutedEventArgs args)
         {
             drink.HoldIce();
+            UpdateCombo();
         }
 
         /// <summary>
@@ -225,8 +307,9 @@ namespace PointOfSale
         {
             if(drink is JurassicJava j)
             {
-                j.AddIce();
-            }            
+                j.AddIce();                
+            }
+            UpdateCombo();
         }
 
         /// <summary>
@@ -238,8 +321,9 @@ namespace PointOfSale
         {
             if(drink is JurassicJava j)
             {
-                j.Decaf = true;
-            }            
+                j.Decaf = true;                
+            }
+            UpdateCombo();
         }
 
         /// <summary>
@@ -251,8 +335,9 @@ namespace PointOfSale
         {
             if(drink is Tyrannotea t)
             {
-                t.Sweet = true;
-            }           
+                t.Sweet = true;                
+            }
+            UpdateCombo();
         }
 
         /// <summary>
@@ -270,6 +355,7 @@ namespace PointOfSale
             {
                 t.AddLemon();
             }
+            UpdateCombo();
         }
 
         /// <summary>
@@ -281,8 +367,13 @@ namespace PointOfSale
         {
             if (sender is FrameworkElement element)
             {
-                drink.Size = (DDSize)Enum.Parse(typeof(DDSize), element.Tag.ToString());
+                size = (DDSize)Enum.Parse(typeof(DDSize), element.Tag.ToString());
+                if(drink != null)
+                {
+                    drink.Size = size;
+                }                
             }
+            UpdateCombo();
         }
 
         /// <summary>
@@ -383,7 +474,7 @@ namespace PointOfSale
             Button b = new Button();
             b.Content = "Done";
             b.Click += new RoutedEventHandler(SelectDone_Click);
-            b.Background = new SolidColorBrush(Colors.IndianRed);
+            b.Background = new SolidColorBrush(Colors.LightYellow);
             return b;
         }
     }

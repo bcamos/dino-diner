@@ -74,6 +74,15 @@ namespace DinoDiner.Menu
         }
 
         /// <summary>
+        /// Default constructor sets sales tax rate to 10%
+        /// </summary>
+        public Order()
+        {
+            SalesTaxRate = .1;
+            items = new List<IOrderItem>();
+        }
+
+        /// <summary>
         /// Constructor which initializes the Sales Tax Rate
         /// </summary>
         /// <param name="salesTaxRate">The sales tax rate of the order as a decimal</param>
@@ -85,6 +94,7 @@ namespace DinoDiner.Menu
             }
             items = new List<IOrderItem>();            
         }
+
 
         /// <summary>
         /// Notify of property changes when collection is changed

@@ -34,13 +34,9 @@ namespace DinoDiner.Menu
             }
             protected set
             {
-                entree = value;
-                NotifyOfPropertyChanged("Price");
+                entree = value;                
                 NotifyOfPropertyChanged("Entree");
-                NotifyOfPropertyChanged("Calories");
-                NotifyOfPropertyChanged("Ingredients");
-                NotifyOfPropertyChanged("Special");
-                NotifyOfPropertyChanged("Description");
+                NotifyOfAllPropertyChanges();
             }
         }
 
@@ -58,10 +54,7 @@ namespace DinoDiner.Menu
             {
                 side = value;
                 NotifyOfPropertyChanged("Side");
-                NotifyOfPropertyChanged("Special");
-                NotifyOfPropertyChanged("Ingredients");
-                NotifyOfPropertyChanged("Price");
-                NotifyOfPropertyChanged("Calories");
+                NotifyOfAllPropertyChanges();
             }
         }       
 
@@ -79,10 +72,7 @@ namespace DinoDiner.Menu
             {
                 drink = value;
                 NotifyOfPropertyChanged("Drink");
-                NotifyOfPropertyChanged("Special");
-                NotifyOfPropertyChanged("Ingredients");
-                NotifyOfPropertyChanged("Price");
-                NotifyOfPropertyChanged("Calories");
+                NotifyOfAllPropertyChanges();
             }
         }
 
@@ -119,6 +109,7 @@ namespace DinoDiner.Menu
                 size = value;
                 Drink.Size = value;
                 Side.Size = value;
+                NotifyOfAllPropertyChanges();
             }
         }
 
@@ -172,6 +163,18 @@ namespace DinoDiner.Menu
         public CretaceousCombo(Entree entree)
         {
             this.Entree = entree;
+        }
+
+        /// <summary>
+        /// Notify of all property changes
+        /// </summary>
+        public void NotifyOfAllPropertyChanges()
+        {            
+            NotifyOfPropertyChanged("Special");
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Price");
+            NotifyOfPropertyChanged("Calories");
+            NotifyOfPropertyChanged("Description");
         }
 
         /// <summary>

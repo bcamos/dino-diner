@@ -27,10 +27,13 @@ namespace PointOfSale
     {
         private Side side;
         private CretaceousCombo combo;
+        private DDSize size;
 
         public SideSelection()
         {
-            InitializeComponent();            
+            InitializeComponent();
+            size = DDSize.Small;
+            InitializeSizeCheckButton();
         }       
 
         /// <summary>
@@ -40,19 +43,9 @@ namespace PointOfSale
         public SideSelection(Side side)
         {
             InitializeComponent();
-            this.side = side;            
-            switch(side.Size)
-            {
-                case DDSize.Small:
-                    SmallButton.IsChecked = true;
-                    break;
-                case DDSize.Medium:
-                    MediumButton.IsChecked = true;
-                    break;
-                case DDSize.Large:
-                    LargeButton.IsChecked = true;
-                    break;
-            }
+            this.side = side;
+            size = side.Size;
+            InitializeSizeCheckButton();
         }
 
         public SideSelection(CretaceousCombo combo)
@@ -60,7 +53,13 @@ namespace PointOfSale
             InitializeComponent();
             this.combo = combo;            
             this.side = combo.Side;
-            switch (side.Size)
+            size = side.Size;
+            InitializeSizeCheckButton();
+        }
+
+        private void InitializeSizeCheckButton()
+        {
+            switch (size)
             {
                 case DDSize.Small:
                     SmallButton.IsChecked = true;
@@ -83,14 +82,16 @@ namespace PointOfSale
         {
             if(DataContext is Order order)
             {
-                if(combo == null)
-                {
-                    side = new Triceritots();
+                side = new Triceritots();
+                side.Size = size;
+                if (combo == null)
+                {                    
                     order.Add(side);
                 }                
                 else
                 {
-                    combo.Side = new Triceritots();
+                    combo.Side = side;
+                    combo.NotifyOfAllPropertyChanges();
                 }
             }
         }
@@ -104,14 +105,16 @@ namespace PointOfSale
         {
             if (DataContext is Order order)
             {
-                if(combo == null)
-                {
-                    side = new MeteorMacAndCheese();
+                side = new MeteorMacAndCheese();
+                side.Size = size;
+                if (combo == null)
+                {                    
                     order.Add(side);
                 }
                 else
                 {
-                    combo.Side = new MeteorMacAndCheese();
+                    combo.Side = side;
+                    combo.NotifyOfAllPropertyChanges();
                 }
             }
         }
@@ -125,14 +128,16 @@ namespace PointOfSale
         {
             if (DataContext is Order order)
             {
-                if(combo == null)
-                {
-                    side = new MezzorellaSticks();
+                side = new MezzorellaSticks();
+                side.Size = size;
+                if (combo == null)
+                {                    
                     order.Add(side);
                 }
                 else
                 {
-                    combo.Side = new MezzorellaSticks();
+                    combo.Side = side;
+                    combo.NotifyOfAllPropertyChanges();
                 }                
             }
         }
@@ -146,14 +151,16 @@ namespace PointOfSale
         {
             if(DataContext is Order order)
             {
-                if(combo == null)
-                {
-                    side = new Fryceritops();
+                side = new Fryceritops();
+                side.Size = size;
+                if (combo == null)
+                {                    
                     order.Add(side);
                 }
                 else
                 {
-                    combo.Side = new Fryceritops();
+                    combo.Side = side;
+                    combo.NotifyOfAllPropertyChanges();
                 }
             }            
         }
@@ -167,8 +174,20 @@ namespace PointOfSale
         {
             if(sender is FrameworkElement element)
             {
-                side.Size = (DDSize) Enum.Parse(typeof(DDSize), element.Tag.ToString());
-                NavigationService.GoBack();
+                size = (DDSize)Enum.Parse(typeof(DDSize), element.Tag.ToString());
+                if (side != null)
+                {
+                    side.Size = size;                    
+                    if (combo == null)
+                    {
+                        NavigationService.GoBack();
+                    }
+                    else
+                    {
+                        combo.NotifyOfAllPropertyChanges();
+                        NavigationService.Navigate(new CustomizeCombo(combo));
+                    }
+                }                           
             }
         }
     }

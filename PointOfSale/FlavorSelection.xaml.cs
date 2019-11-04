@@ -25,7 +25,9 @@ namespace PointOfSale
     /// </summary>
     public partial class FlavorSelection : Page
     {
+        CretaceousCombo combo;
         Drink drink;
+
         public FlavorSelection()
         {
             InitializeComponent();
@@ -42,6 +44,17 @@ namespace PointOfSale
         }
 
         /// <summary>
+        /// Constructor which initializes combo and drink
+        /// </summary>
+        /// <param name="combo"></param>
+        public FlavorSelection(CretaceousCombo combo)
+        {
+            InitializeComponent();
+            this.combo = combo;
+            this.drink = combo.Drink;
+        }
+
+        /// <summary>
         /// Sets the flavor of the soda to the flavor
         /// </summary>
         /// <param name="sender">The flavor button</param>
@@ -53,6 +66,10 @@ namespace PointOfSale
                 if(sender is FrameworkElement element)
                 {
                     soda.Flavor = (DDFlavor)Enum.Parse(typeof(DDFlavor), element.Tag.ToString());
+                    if(combo != null)
+                    {
+                        combo.NotifyOfAllPropertyChanges();
+                    }
                 }                
             }
             NavigationService.GoBack();
