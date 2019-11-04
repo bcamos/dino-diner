@@ -47,6 +47,9 @@ namespace PointOfSale
             SetButtonBackground(DrinkButton, combo.Drink.ImagePath);
         }
 
+        /// <summary>
+        /// Update all labels
+        /// </summary>
         private void UpdateLabels()
         {
             EntreeLabel.Content = combo.Entree.ToString();
@@ -63,6 +66,11 @@ namespace PointOfSale
         {
             StreamResourceInfo stream = Application.GetResourceStream(new Uri(ImagePath, UriKind.Relative));
             b.Background = new ImageBrush(BitmapFrame.Create(stream.Stream));
+        }
+
+        private void Done_Click(object sender, RoutedEventArgs args)
+        {
+            NavigationService.Navigate(new MenuCategorySelection());
         }
 
         /// <summary>

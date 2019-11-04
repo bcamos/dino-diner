@@ -38,7 +38,7 @@
         </ListBox>
         <TextBlock Text="Subtotal $" FontWeight="Bold" TextAlignment="Right" Grid.Row="2"/>
         <TextBlock Text="{Binding Path=SubtotalCost}" Grid.Row="2" Grid.Column="1" FontWeight="Bold"/>
-        <Button Grid.Row="3">Cancel</Button>
-        <Button Grid.Row="3" Grid.Column="1">Pay</Button>
+        <Button Grid.Row="3" Background="Red" FontSize="15" FontWeight="Bold">Cancel</Button>
+        <Button Grid.Row="3" Grid.Column="1" Background="ForestGreen" FontSize="15" FontWeight="Bold">Pay</Button>
     </Grid>
 </UserControl>

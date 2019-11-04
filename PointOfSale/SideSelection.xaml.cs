@@ -73,6 +73,18 @@ namespace PointOfSale
             }
         }
 
+        private void Done_Click(object sender, RoutedEventArgs args)
+        {
+            if(combo == null)
+            {
+                NavigationService.GoBack();                
+            }
+            else
+            {
+                NavigationService.Navigate(new CustomizeCombo(combo));
+            }
+        }
+
         /// <summary>
         /// Add a triceritots to the order
         /// </summary>
@@ -177,15 +189,10 @@ namespace PointOfSale
                 size = (DDSize)Enum.Parse(typeof(DDSize), element.Tag.ToString());
                 if (side != null)
                 {
-                    side.Size = size;                    
-                    if (combo == null)
-                    {
-                        NavigationService.GoBack();
-                    }
-                    else
+                    side.Size = size;
+                    if (combo != null)
                     {
                         combo.NotifyOfAllPropertyChanges();
-                        NavigationService.Navigate(new CustomizeCombo(combo));
                     }
                 }                           
             }

@@ -12,12 +12,13 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="70"/>
             <RowDefinition/>
+            <RowDefinition Height="45"/>
             <RowDefinition Height="70"/>
         </Grid.RowDefinitions>
         <StackPanel Background="Beige">
             <Label HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="35" FontWeight="Bold">Customize Combo</Label>
         </StackPanel>        
-        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
             <StackPanel.Resources>
                 <Style TargetType="Button">
                     <Setter Property="Width" Value="180"/>
@@ -47,7 +48,8 @@
                 <Label Name="DrinkLabel">* Sodasaurus</Label>
             </StackPanel>
         </StackPanel>
-        <Grid Grid.Row="2" Background="Beige">
+        <Button Grid.Row="2" Height="40" Width="180" HorizontalAlignment="Right" Margin="0,0,10,5" FontSize="22" Background="DarkSeaGreen" Click="Done_Click">Done</Button>
+        <Grid Grid.Row="3" Background="Beige">
             <Grid.Resources>
                 <Style TargetType="RadioButton">
                     <Setter Property="HorizontalAlignment" Value="Center"/>
