@@ -25,8 +25,8 @@ namespace PointOfSale
     {
         public MenuCategorySelection()
         {
-            InitializeComponent();
-        }
+            InitializeComponent();                   
+        }        
 
         /// <summary>
         /// Open combo menu when the combo button is clicked

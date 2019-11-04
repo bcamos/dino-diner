@@ -63,7 +63,8 @@ namespace DinoDiner.Menu
         public MeteorMacAndCheese()
         {
             Price = 0.99;
-            Calories = 420;            
+            Calories = 420;
+            ImagePath = "Images/DinoDiner-09.png";
         }
 
         /// <summary>

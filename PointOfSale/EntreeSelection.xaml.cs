@@ -29,6 +29,11 @@ namespace PointOfSale
         {
             InitializeComponent();
         }
+
+        private void CustomizeSelectEntree(Entree entree)
+        {
+            NavigationService.Navigate(new CustomizeEntree(entree, new MenuCategorySelection()));
+        }
         
         /// <summary>
         /// Add a brontowurst to the order and return to menu category selection screen
@@ -39,8 +44,9 @@ namespace PointOfSale
         {
             if (DataContext is Order order)
             {
-                order.Add(new Brontowurst());
-                NavigationService.GoBack();
+                Brontowurst b = new Brontowurst();
+                order.Add(b);
+                CustomizeSelectEntree(b);
             }
         }
 
@@ -53,8 +59,9 @@ namespace PointOfSale
         {
             if (DataContext is Order order)
             {
-                order.Add(new SteakosaurusBurger());
-                NavigationService.GoBack();
+                SteakosaurusBurger sb = new SteakosaurusBurger();
+                order.Add(sb);
+                CustomizeSelectEntree(sb);
             }
         }
 
@@ -68,7 +75,7 @@ namespace PointOfSale
             if (DataContext is Order order)
             {
                 order.Add(new PterodactylWings());
-                NavigationService.GoBack();
+                NavigationService.Navigate(new MenuCategorySelection());
             }
         }
 
@@ -81,8 +88,9 @@ namespace PointOfSale
         {
             if (DataContext is Order order)
             {
-                order.Add(new TRexKingBurger());
-                NavigationService.GoBack();
+                TRexKingBurger tb = new TRexKingBurger();
+                order.Add(tb);
+                CustomizeSelectEntree(tb);
             }
         }
 
@@ -95,8 +103,9 @@ namespace PointOfSale
         {
             if (DataContext is Order order)
             {
-                order.Add(new DinoNuggets());
-                NavigationService.GoBack();
+                DinoNuggets dn = new DinoNuggets();
+                order.Add(dn);
+                CustomizeSelectEntree(dn);
             }
         }
 
@@ -109,8 +118,9 @@ namespace PointOfSale
         {
             if (DataContext is Order order)
             {
-                order.Add(new PrehistoricPBJ());
-                NavigationService.GoBack();
+                PrehistoricPBJ pbj = new PrehistoricPBJ();
+                order.Add(pbj);
+                CustomizeSelectEntree(pbj);                
             }
         }
 
@@ -123,8 +133,9 @@ namespace PointOfSale
         {
             if (DataContext is Order order)
             {
-                order.Add(new VelociWrap());
-                NavigationService.GoBack();
+                VelociWrap vw = new VelociWrap();
+                order.Add(vw);
+                CustomizeSelectEntree(vw);
             }
         }
     }

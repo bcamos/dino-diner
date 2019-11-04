@@ -26,11 +26,12 @@ namespace PointOfSale
     public partial class SideSelection : Page
     {
         private Side side;
+        private CretaceousCombo combo;
 
         public SideSelection()
         {
-            InitializeComponent();
-        }
+            InitializeComponent();            
+        }       
 
         /// <summary>
         /// Constructor which initializes the side
@@ -39,7 +40,38 @@ namespace PointOfSale
         public SideSelection(Side side)
         {
             InitializeComponent();
-            this.side = side;
+            this.side = side;            
+            switch(side.Size)
+            {
+                case DDSize.Small:
+                    SmallButton.IsChecked = true;
+                    break;
+                case DDSize.Medium:
+                    MediumButton.IsChecked = true;
+                    break;
+                case DDSize.Large:
+                    LargeButton.IsChecked = true;
+                    break;
+            }
+        }
+
+        public SideSelection(CretaceousCombo combo)
+        {
+            InitializeComponent();
+            this.combo = combo;            
+            this.side = combo.Side;
+            switch (side.Size)
+            {
+                case DDSize.Small:
+                    SmallButton.IsChecked = true;
+                    break;
+                case DDSize.Medium:
+                    MediumButton.IsChecked = true;
+                    break;
+                case DDSize.Large:
+                    LargeButton.IsChecked = true;
+                    break;
+            }
         }
 
         /// <summary>
@@ -51,8 +83,15 @@ namespace PointOfSale
         {
             if(DataContext is Order order)
             {
-                side = new Triceritots();
-                order.Add(side);
+                if(combo == null)
+                {
+                    side = new Triceritots();
+                    order.Add(side);
+                }                
+                else
+                {
+                    combo.Side = new Triceritots();
+                }
             }
         }
 
@@ -65,8 +104,15 @@ namespace PointOfSale
         {
             if (DataContext is Order order)
             {
-                side = new MeteorMacAndCheese();
-                order.Add(side);
+                if(combo == null)
+                {
+                    side = new MeteorMacAndCheese();
+                    order.Add(side);
+                }
+                else
+                {
+                    combo.Side = new MeteorMacAndCheese();
+                }
             }
         }
 
@@ -79,8 +125,15 @@ namespace PointOfSale
         {
             if (DataContext is Order order)
             {
-                side = new MezzorellaSticks();
-                order.Add(side);
+                if(combo == null)
+                {
+                    side = new MezzorellaSticks();
+                    order.Add(side);
+                }
+                else
+                {
+                    combo.Side = new MezzorellaSticks();
+                }                
             }
         }
 
@@ -93,8 +146,15 @@ namespace PointOfSale
         {
             if(DataContext is Order order)
             {
-                side = new Fryceritops();
-                order.Add(side);
+                if(combo == null)
+                {
+                    side = new Fryceritops();
+                    order.Add(side);
+                }
+                else
+                {
+                    combo.Side = new Fryceritops();
+                }
             }            
         }
 

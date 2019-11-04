@@ -35,7 +35,7 @@
         <StackPanel Grid.Row="0" Orientation="Horizontal">
             <StackPanel>
                 <Label>+ Steakosaurus Burger</Label>
-                <Button>
+                <Button Tag="SteakosaurusBurger">
                     <Button.Background>
                         <ImageBrush ImageSource="Images/DinoDiner-05.png"/>
                     </Button.Background>
@@ -43,7 +43,7 @@
             </StackPanel>
             <StackPanel>
                 <Label>+ Pterodactyl Wings</Label>
-                <Button>
+                <Button Tag="PterodactylWings">
                     <Button.Background>
                         <ImageBrush ImageSource="Images/DinoDiner-04.png"/>
                     </Button.Background>
@@ -51,7 +51,7 @@
             </StackPanel>
             <StackPanel>
                 <Label>+ T-Rex King Burger</Label>
-                <Button>
+                <Button Tag="TRexKingBurger">
                     <Button.Background>
                         <ImageBrush ImageSource="Images/DinoDiner-06.png"/>
                     </Button.Background>
@@ -61,7 +61,7 @@
         <StackPanel Grid.Row="1" Orientation="Horizontal">
             <StackPanel>
                 <Label>+ Dino-Nuggets</Label>
-                <Button>
+                <Button Tag="DinoNuggets">
                     <Button.Background>
                         <ImageBrush ImageSource="Images/DinoDiner-02.png"/>
                     </Button.Background>
@@ -70,7 +70,7 @@
             <Label FontSize="40" VerticalAlignment="Center" FontWeight="Bold" Margin="40">Combos</Label>
             <StackPanel>
                 <Label>+ Brontowurst</Label>
-                <Button>
+                <Button Tag="Brontowurst">
                     <Button.Background>
                         <ImageBrush ImageSource="Images/DinoDiner-01.png"/>
                     </Button.Background>
@@ -80,7 +80,7 @@
         <StackPanel Grid.Row="2" Orientation="Horizontal">
             <StackPanel>
                 <Label>+ Prehistoric PB&amp;J</Label>
-                <Button>
+                <Button Tag="PrehistoricPBJ">
                     <Button.Background>
                         <ImageBrush ImageSource="Images/DinoDiner-03.png"/>
                     </Button.Background>
@@ -88,7 +88,7 @@
             </StackPanel>
             <StackPanel>
                 <Label>+ Veloci-Wrap</Label>
-                <Button>
+                <Button Tag="VelociWrap">
                     <Button.Background>
                         <ImageBrush ImageSource="Images/DinoDiner-07.png"/>
                     </Button.Background>

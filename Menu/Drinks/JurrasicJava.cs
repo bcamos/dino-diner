@@ -108,6 +108,7 @@ namespace DinoDiner.Menu
         public JurassicJava()
         {
             Size = Size.Small;
+            ImagePath = "Images/DinoDiner-13.png";
             HoldIce();
         }
 

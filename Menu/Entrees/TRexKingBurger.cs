@@ -70,6 +70,7 @@ namespace DinoDiner.Menu
         {
             Price = 8.45;
             Calories = 728;
+            ImagePath = "Images/DinoDiner-06.png";
         }
 
         /// <summary>

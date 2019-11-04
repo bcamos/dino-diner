@@ -32,22 +32,27 @@
                 </Style>
             </StackPanel.Resources>
             <StackPanel Margin="10">
+                <Label>-+Customize Entree</Label>
+                <Button Name="EntreeButton" Click="SelectCustomizeEntree_Click"></Button>
+                <Label Name="EntreeLabel">Entree</Label>
+            </StackPanel>
+            <StackPanel Margin="10">
                 <Label>-+Switch Side</Label>
-                <Button Click="SelectSide_Click">
+                <Button Name="SideButton" Click="SelectSide_Click">
                     <Button.Background>
                         <ImageBrush ImageSource="Images/DinoDiner-08.png"/>
                     </Button.Background>
                 </Button>
-                <Label>* Friceritops</Label>
+                <Label Name="SideLabel">* Friceritops</Label>
             </StackPanel>
             <StackPanel Margin="10">
                 <Label>-+Switch Drink</Label>
-                <Button Click="SelectDrink_Click">
+                <Button Name="DrinkButton" Click="SelectDrink_Click">
                     <Button.Background>
                         <ImageBrush ImageSource="Images/DinoDiner-14.png"/>
                     </Button.Background>
                 </Button>
-                <Label>* Sodasaurus</Label>
+                <Label Name="DrinkLabel">* Sodasaurus</Label>
             </StackPanel>
         </StackPanel>
         <Grid Grid.Row="2" Background="Beige">
@@ -63,9 +68,9 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <RadioButton Grid.Column="0">Small</RadioButton>
-            <RadioButton Grid.Column="1" FontWeight="Bold">Medium</RadioButton>
-            <RadioButton Grid.Column="2" FontWeight="Black">Large</RadioButton>
+            <RadioButton Grid.Column="0" Tag="Small" Click="SelectSize_Click">Small</RadioButton>
+            <RadioButton Grid.Column="1" Tag="Medium" FontWeight="Bold" Click="SelectSize_Click">Medium</RadioButton>
+            <RadioButton Grid.Column="2" Tag="Large" FontWeight="Black" Click="SelectSize_Click">Large</RadioButton>
         </Grid>
     </Grid>
 </Page>

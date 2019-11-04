@@ -54,6 +54,9 @@
     <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
+    <Compile Include="CustomizeEntree.xaml.cs">
+      <DependentUpon>CustomizeEntree.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DrinkSelection.xaml.cs">
       <DependentUpon>DrinkSelection.xaml</DependentUpon>
     </Compile>
@@ -71,6 +74,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="CustomizeCombo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CustomizeEntree.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

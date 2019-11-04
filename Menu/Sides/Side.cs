@@ -29,6 +29,11 @@ namespace DinoDiner.Menu
         public abstract List<string> Ingredients { get; }
 
         /// <summary>
+        /// A string path to the image of the side
+        /// </summary>
+        public string ImagePath { get; protected set; }
+
+        /// <summary>
         /// A description of what the side is
         /// </summary>
         public virtual string Description

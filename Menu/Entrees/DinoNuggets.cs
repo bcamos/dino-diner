@@ -63,6 +63,7 @@ namespace DinoDiner.Menu
         public DinoNuggets()
         {
             Price = 4.25;
+            ImagePath = "Images/DinoDiner-02.png";
         }
 
         /// <summary>

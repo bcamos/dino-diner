@@ -26,6 +26,7 @@ namespace PointOfSale
     public partial class DrinkSelection : Page
     {
         private Drink drink;
+        private CretaceousCombo combo;
 
         public DrinkSelection()
         {
@@ -40,6 +41,89 @@ namespace PointOfSale
         {
             InitializeComponent();
             this.drink = drink;
+            ButtonSetup();
+        } 
+
+        public DrinkSelection(CretaceousCombo combo)
+        {
+            InitializeComponent();
+            this.combo = combo;
+            this.drink = combo.Drink;
+            ButtonSetup();
+        }
+
+        private void ButtonSetup()
+        {
+            if (drink is Sodasaurus s)
+            {
+                SodasaurusSetup();
+            }
+            else if (drink is Tyrannotea t)
+            {
+                TyrannoteaSetup();
+            }
+            else if (drink is JurassicJava j)
+            {
+                JurrasicJavaSetup();
+            }
+            else if (drink is Water w)
+            {
+                WaterSetup();
+            }
+
+            switch (drink.Size)
+            {
+                case DDSize.Small:
+                    SmallButton.IsChecked = true;
+                    break;
+                case DDSize.Medium:
+                    MediumButton.IsChecked = true;
+                    break;
+                case DDSize.Large:
+                    LargeButton.IsChecked = true;
+                    break;
+            }
+        }
+
+        private void SodasaurusSetup()
+        {
+            uxDynamicButtonPanel.Children.Clear();
+            uxDynamicButtonPanel.Children.Add(AddSodaflavorButton());
+            uxDynamicButtonPanel.Children.Add(AddHoldIceButton());
+            uxDynamicButtonPanel.Children.Add(AddDoneButton());
+            ResetLabels();
+            uxSodasaurusLabel.Content = "* Sodasaurus";
+        }
+
+        private void TyrannoteaSetup()
+        {
+            uxDynamicButtonPanel.Children.Clear();
+            uxDynamicButtonPanel.Children.Add(AddSweetButton());
+            uxDynamicButtonPanel.Children.Add(AddAddLemonButton());
+            uxDynamicButtonPanel.Children.Add(AddHoldIceButton());
+            uxDynamicButtonPanel.Children.Add(AddDoneButton());
+            ResetLabels();
+            uxTyrannoteaLabel.Content = "* Tyrannotea";
+        }
+
+        private void JurrasicJavaSetup()
+        {
+            uxDynamicButtonPanel.Children.Clear();
+            uxDynamicButtonPanel.Children.Add(AddDecafButton());
+            uxDynamicButtonPanel.Children.Add(AddAddIceButton());
+            uxDynamicButtonPanel.Children.Add(AddDoneButton());
+            ResetLabels();
+            uxJurrasicJavaLabel.Content = "* Jurrasic Java";
+        }
+
+        private void WaterSetup()
+        {
+            uxDynamicButtonPanel.Children.Clear();
+            uxDynamicButtonPanel.Children.Add(AddAddLemonButton());
+            uxDynamicButtonPanel.Children.Add(AddHoldIceButton());
+            uxDynamicButtonPanel.Children.Add(AddDoneButton());
+            ResetLabels();
+            uxWaterLabel.Content = "* Water";
         }
 
         /// <summary>
@@ -53,13 +137,7 @@ namespace PointOfSale
             {
                 drink = new Sodasaurus();
                 order.Add(drink);
-                uxDynamicButtonPanel.Children.Clear();
-                uxDynamicButtonPanel.Children.Add(AddSodaflavorButton());
-                uxDynamicButtonPanel.Children.Add(AddHoldIceButton());
-                uxDynamicButtonPanel.Children.Add(AddDoneButton());
-
-                ResetLabels();
-                uxSodasaurusLabel.Content = "* Sodasaurus";
+                SodasaurusSetup();
             }            
         }
 
@@ -74,13 +152,7 @@ namespace PointOfSale
             {
                 drink = new Tyrannotea();
                 order.Add(drink);
-                uxDynamicButtonPanel.Children.Clear();
-                uxDynamicButtonPanel.Children.Add(AddSweetButton());
-                uxDynamicButtonPanel.Children.Add(AddAddLemonButton());
-                uxDynamicButtonPanel.Children.Add(AddHoldIceButton());
-                uxDynamicButtonPanel.Children.Add(AddDoneButton());
-                ResetLabels();
-                uxTyrannoteaLabel.Content = "* Tyrannotea";
+                TyrannoteaSetup();
             }
         }
 
@@ -95,13 +167,7 @@ namespace PointOfSale
             {
                 drink = new JurassicJava();
                 order.Add(drink);
-                uxDynamicButtonPanel.Children.Clear();
-                uxDynamicButtonPanel.Children.Add(AddDecafButton());
-                uxDynamicButtonPanel.Children.Add(AddAddIceButton());
-                uxDynamicButtonPanel.Children.Add(AddDoneButton());
-
-                ResetLabels();
-                uxJurrasicJavaLabel.Content = "* Jurrasic Java";
+                JurrasicJavaSetup();
             }            
         }
 
@@ -116,14 +182,7 @@ namespace PointOfSale
             {
                 drink = new Water();
                 order.Add(drink);
-
-                uxDynamicButtonPanel.Children.Clear();
-                uxDynamicButtonPanel.Children.Add(AddAddLemonButton());
-                uxDynamicButtonPanel.Children.Add(AddHoldIceButton());
-                uxDynamicButtonPanel.Children.Add(AddDoneButton());
-
-                ResetLabels();
-                uxWaterLabel.Content = "* Water";
+                WaterSetup();
             }            
         }
 

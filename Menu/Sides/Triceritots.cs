@@ -64,7 +64,8 @@ namespace DinoDiner.Menu
         public Triceritots()
         {
             Price = .99;
-            Calories = 352;           
+            Calories = 352;
+            ImagePath = "Images/DinoDiner-11.png";
         }
 
         /// <summary>

@@ -91,9 +91,9 @@
                     <Setter Property="FontSize" Value="20"/>
                 </Style>
             </Grid.Resources>
-            <RadioButton Tag="Small" Click="OnChangeSize">Small</RadioButton>
-            <RadioButton Grid.Column="1" FontWeight="Bold" Tag="Medium" Click="OnChangeSize">Medium</RadioButton>
-            <RadioButton Grid.Column="2" FontWeight="Black" Tag="Large" Click="OnChangeSize">Large</RadioButton>
+            <RadioButton Tag="Small" Click="OnChangeSize" Name="SmallButton">Small</RadioButton>
+            <RadioButton Grid.Column="1" FontWeight="Bold" Tag="Medium" Click="OnChangeSize" Name="MediumButton">Medium</RadioButton>
+            <RadioButton Grid.Column="2" FontWeight="Black" Tag="Large" Click="OnChangeSize" Name="LargeButton">Large</RadioButton>
         </Grid>        
     </Grid>
 </Page>

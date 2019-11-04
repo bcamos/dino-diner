@@ -121,6 +121,7 @@ namespace DinoDiner.Menu
         public Tyrannotea()
         {
             Size = Size.Small;
+            ImagePath = "Images/DinoDiner-12.png";
         }
 
         public void AddLemon()

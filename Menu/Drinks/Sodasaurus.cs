@@ -98,6 +98,7 @@ namespace DinoDiner.Menu
         public Sodasaurus()
         {
             Size = Size.Small;
+            ImagePath = "Images/DinoDiner-14.png";
         }
 
         /// <summary>

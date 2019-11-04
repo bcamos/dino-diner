@@ -64,7 +64,8 @@ namespace DinoDiner.Menu
         public Fryceritops()
         {
             Price = 0.99;
-            Calories = 222;            
+            Calories = 222;
+            ImagePath = "Images/DinoDiner-08.png";
         }
 
         /// <summary>

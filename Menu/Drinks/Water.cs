@@ -52,6 +52,7 @@ namespace DinoDiner.Menu
             Calories = 0;
             Price = 0.10;
             Size = Size.Small;
+            ImagePath = "Images/DinoDiner-15.png";
         }
 
         /// <summary>

@@ -22,7 +22,6 @@ namespace DinoDiner.Menu
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-
         
         /// <summary>
         /// Gets and sets the entree

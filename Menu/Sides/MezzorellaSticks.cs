@@ -63,7 +63,8 @@ namespace DinoDiner.Menu
         public MezzorellaSticks()
         {
             Price = 0.99;
-            Calories = 540;            
+            Calories = 540;
+            ImagePath = "Images/DinoDiner-10.png";
         }
 
         /// <summary>

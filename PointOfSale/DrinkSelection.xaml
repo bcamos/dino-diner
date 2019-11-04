@@ -100,9 +100,9 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <RadioButton Grid.Column="0" Click="OnChangeSize" Tag="Small">Small</RadioButton>
-            <RadioButton Grid.Column="1" FontWeight="Bold" Click="OnChangeSize" Tag="Medium">Medium</RadioButton>
-            <RadioButton Grid.Column="2" FontWeight="Black" Click="OnChangeSize" Tag="Large">Large</RadioButton>
+            <RadioButton Grid.Column="0" Click="OnChangeSize" Tag="Small" Name="SmallButton">Small</RadioButton>
+            <RadioButton Grid.Column="1" FontWeight="Bold" Click="OnChangeSize" Tag="Medium" Name="MediumButton">Medium</RadioButton>
+            <RadioButton Grid.Column="2" FontWeight="Black" Click="OnChangeSize" Tag="Large" Name="LargeButton">Large</RadioButton>
         </Grid>
     </Grid>
 </Page>

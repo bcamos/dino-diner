@@ -49,6 +49,11 @@ namespace DinoDiner.Menu
         }
 
         /// <summary>
+        /// A string containing a path to the image of the drink
+        /// </summary>
+        public string ImagePath { get; protected set; }
+
+        /// <summary>
         /// A description of what the drink is
         /// </summary>
         public string Description
