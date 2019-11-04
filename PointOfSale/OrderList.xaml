@@ -11,6 +11,8 @@
             <RowDefinition Height="20"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="20"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="20"/>
             <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
@@ -36,9 +38,13 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <TextBlock Text="Subtotal $" FontWeight="Bold" TextAlignment="Right" Grid.Row="2"/>
-        <TextBlock Text="{Binding Path=SubtotalCost}" Grid.Row="2" Grid.Column="1" FontWeight="Bold"/>
-        <Button Grid.Row="3" Background="Red" FontSize="15" FontWeight="Bold">Cancel</Button>
-        <Button Grid.Row="3" Grid.Column="1" Background="ForestGreen" FontSize="15" FontWeight="Bold">Pay</Button>
+        <TextBlock Text="Subtotal $" TextAlignment="Right" Grid.Row="2"/>
+        <TextBlock Text="{Binding Path=SubtotalCost}" Grid.Row="2" Grid.Column="1"/>
+        <TextBlock Text="Sales Tax $" TextAlignment="Right" Grid.Row="3"/>
+        <TextBlock Text="{Binding Path=SalesTaxCost}" Grid.Row="3" Grid.Column="1"/>
+        <TextBlock Text="Total $" FontWeight="Bold" TextAlignment="Right" Grid.Row="4"/>
+        <TextBlock Text="{Binding Path=TotalCost}" Grid.Row="4" Grid.Column="1" FontWeight="Bold"/>
+        <Button Grid.Row="5" Background="Red" FontSize="15" FontWeight="Bold">Cancel</Button>
+        <Button Grid.Row="5" Grid.Column="1" Background="ForestGreen" FontSize="15" FontWeight="Bold">Pay</Button>
     </Grid>
 </UserControl>
