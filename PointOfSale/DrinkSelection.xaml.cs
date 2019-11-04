@@ -160,7 +160,7 @@ namespace PointOfSale
         {
             if(combo != null)
             {
-                combo.Drink = drink;
+                combo.NotifyOfAllPropertyChanges();
             }            
         }
 
