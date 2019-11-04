@@ -68,6 +68,11 @@ namespace PointOfSale
             b.Background = new ImageBrush(BitmapFrame.Create(stream.Stream));
         }
 
+        /// <summary>
+        /// Returns to the main menu
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         private void Done_Click(object sender, RoutedEventArgs args)
         {
             NavigationService.Navigate(new MenuCategorySelection());

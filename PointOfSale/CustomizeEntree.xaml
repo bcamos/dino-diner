@@ -28,6 +28,7 @@
                         <Setter Property="Height" Value="55"/>
                         <Setter Property="FontSize" Value="25"/>
                         <Setter Property="Margin" Value="10,10,0,0"/>
+                        <Setter Property="BorderThickness" Value="0"/>
                     </Style>
                 </StackPanel.Resources>
             </StackPanel>

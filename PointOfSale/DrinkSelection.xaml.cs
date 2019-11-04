@@ -29,6 +29,9 @@ namespace PointOfSale
         private CretaceousCombo combo;
         private DDSize size;
 
+        /// <summary>
+        /// Initizalizes size to small, and checks the small button
+        /// </summary>
         public DrinkSelection()
         {
             InitializeComponent();

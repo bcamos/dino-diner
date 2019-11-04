@@ -29,6 +29,9 @@ namespace PointOfSale
         private CretaceousCombo combo;
         private DDSize size;
 
+        /// <summary>
+        /// Initializes size to small and checks the correct button
+        /// </summary>
         public SideSelection()
         {
             InitializeComponent();
@@ -48,6 +51,10 @@ namespace PointOfSale
             InitializeSizeCheckButton();
         }
 
+        /// <summary>
+        /// Constructor which initializes the combo and the side
+        /// </summary>
+        /// <param name="combo"></param>
         public SideSelection(CretaceousCombo combo)
         {
             InitializeComponent();
@@ -57,6 +64,9 @@ namespace PointOfSale
             InitializeSizeCheckButton();
         }
 
+        /// <summary>
+        /// Checks the appropriate size button for initialization
+        /// </summary>
         private void InitializeSizeCheckButton()
         {
             switch (size)
@@ -73,6 +83,11 @@ namespace PointOfSale
             }
         }
 
+        /// <summary>
+        /// Returns to the appropriate page
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         private void Done_Click(object sender, RoutedEventArgs args)
         {
             if(combo == null)

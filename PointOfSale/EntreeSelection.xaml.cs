@@ -30,7 +30,11 @@ namespace PointOfSale
             InitializeComponent();
         }
 
-        private void CustomizeSelectEntree(Entree entree)
+        /// <summary>
+        /// Navigates to the entree customization screen with the selected entree
+        /// </summary>
+        /// <param name="entree"></param>
+        private void CustomizeSelectedEntree(Entree entree)
         {
             NavigationService.Navigate(new CustomizeEntree(entree, new MenuCategorySelection()));
         }
@@ -46,7 +50,7 @@ namespace PointOfSale
             {
                 Brontowurst b = new Brontowurst();
                 order.Add(b);
-                CustomizeSelectEntree(b);
+                CustomizeSelectedEntree(b);
             }
         }
 
@@ -61,7 +65,7 @@ namespace PointOfSale
             {
                 SteakosaurusBurger sb = new SteakosaurusBurger();
                 order.Add(sb);
-                CustomizeSelectEntree(sb);
+                CustomizeSelectedEntree(sb);
             }
         }
 
@@ -90,7 +94,7 @@ namespace PointOfSale
             {
                 TRexKingBurger tb = new TRexKingBurger();
                 order.Add(tb);
-                CustomizeSelectEntree(tb);
+                CustomizeSelectedEntree(tb);
             }
         }
 
@@ -105,7 +109,7 @@ namespace PointOfSale
             {
                 DinoNuggets dn = new DinoNuggets();
                 order.Add(dn);
-                CustomizeSelectEntree(dn);
+                CustomizeSelectedEntree(dn);
             }
         }
 
@@ -120,7 +124,7 @@ namespace PointOfSale
             {
                 PrehistoricPBJ pbj = new PrehistoricPBJ();
                 order.Add(pbj);
-                CustomizeSelectEntree(pbj);                
+                CustomizeSelectedEntree(pbj);                
             }
         }
 
@@ -135,7 +139,7 @@ namespace PointOfSale
             {
                 VelociWrap vw = new VelociWrap();
                 order.Add(vw);
-                CustomizeSelectEntree(vw);
+                CustomizeSelectedEntree(vw);
             }
         }
     }
