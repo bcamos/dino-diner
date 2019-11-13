@@ -2,6 +2,7 @@
  * Author: Ben Amos
  */
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
@@ -62,6 +63,23 @@ namespace DinoDiner.Menu
         /// Default constructor initializes price, calories, and ingredients
         /// </summary>
         public Fryceritops()
+        {
+            InitializeFryceritops();            
+        }
+
+        /// <summary>
+        /// Default constructor initializes price, calories, and ingredients
+        /// </summary>
+        public Fryceritops(IOrderItem reference, PropertyChangedEventHandler h)
+        {
+            InitializeFryceritops();
+            InitializeParent(reference, h);
+        }
+
+        /// <summary>
+        /// Initialize fryceritops
+        /// </summary>
+        private void InitializeFryceritops()
         {
             Price = 0.99;
             Calories = 222;

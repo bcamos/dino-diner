@@ -52,6 +52,7 @@ namespace PointOfSale
             this.nextPage = nextPage;
             this.combo = combo;
             this.entree = combo.Entree;
+            combo.Entree = entree;
             SetupScreen(entree);
         }
 
@@ -433,8 +434,7 @@ namespace PointOfSale
             else if(entree is TRexKingBurger tb)
             {
                 tb.HoldBun();
-            }
-            UpdateCombo();
+            }            
         }
 
         /// <summary>
@@ -451,8 +451,7 @@ namespace PointOfSale
             else if(entree is TRexKingBurger tb)
             {
                 tb.HoldOnion();
-            }
-            UpdateCombo();
+            }            
         }
 
         /// <summary>
@@ -465,8 +464,7 @@ namespace PointOfSale
             if(entree is Brontowurst b)
             {
                 b.HoldPeppers();
-            }
-            UpdateCombo();
+            }            
         }
 
         /// <summary>
@@ -485,8 +483,7 @@ namespace PointOfSale
                         dn.AddNugget();
                     }
                 }
-            }
-            UpdateCombo();
+            }            
         }
 
         /// <summary>
@@ -499,8 +496,7 @@ namespace PointOfSale
             if(entree is PrehistoricPBJ pbj)
             {
                 pbj.HoldJelly();
-            }
-            UpdateCombo();
+            }            
         }
 
         /// <summary>
@@ -513,8 +509,7 @@ namespace PointOfSale
             if(entree is PrehistoricPBJ pbj)
             {
                 pbj.HoldPeanutButter();
-            }
-            UpdateCombo();
+            }            
         }
 
         /// <summary>
@@ -531,8 +526,7 @@ namespace PointOfSale
             else if(entree is TRexKingBurger tb)
             {
                 tb.HoldKetchup();
-            }
-            UpdateCombo();
+            }            
         }
 
         /// <summary>
@@ -549,8 +543,7 @@ namespace PointOfSale
             else if(entree is TRexKingBurger tb)
             {
                 tb.HoldMustard();
-            }
-            UpdateCombo();
+            }            
         }
 
         /// <summary>
@@ -567,8 +560,7 @@ namespace PointOfSale
             else if(entree is TRexKingBurger tb)
             {
                 tb.HoldPickle();
-            }
-            UpdateCombo();
+            }            
         }
 
         /// <summary>
@@ -585,8 +577,7 @@ namespace PointOfSale
             else if(entree is VelociWrap vw)
             {
                 vw.HoldLettuce();
-            }
-            UpdateCombo();
+            }            
         }
 
         /// <summary>
@@ -599,8 +590,7 @@ namespace PointOfSale
             if(entree is TRexKingBurger tb)
             {
                 tb.HoldMayo();
-            }
-            UpdateCombo();
+            }            
         }
 
         /// <summary>
@@ -613,8 +603,7 @@ namespace PointOfSale
             if(entree is TRexKingBurger tb)
             {
                 tb.HoldTomato();
-            }
-            UpdateCombo();
+            }            
         }
 
         /// <summary>
@@ -627,8 +616,7 @@ namespace PointOfSale
             if(entree is VelociWrap vw)
             {
                 vw.HoldCheese();
-            }
-            UpdateCombo();
+            }            
         }
 
         /// <summary>
@@ -641,8 +629,7 @@ namespace PointOfSale
             if(entree is VelociWrap vw)
             {
                 vw.HoldDressing();
-            }
-            UpdateCombo();
+            }            
         }
     }
 }

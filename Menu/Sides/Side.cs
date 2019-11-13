@@ -66,12 +66,32 @@ namespace DinoDiner.Menu
         public event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>
+        /// The parent object: this by default
+        /// </summary>
+        protected IOrderItem parent;
+
+        /// <summary>
+        /// Initialize the parent object of what the notifications will point to
+        /// </summary>
+        /// <param name="parentRef">The object</param>
+        /// <param name="han">The object's handler</param>
+        public void InitializeParent(IOrderItem parentRef, PropertyChangedEventHandler handler)
+        {
+            parent = parentRef;
+            PropertyChanged = handler;
+        }
+
+        /// <summary>
         /// Add the property event args for the given property
         /// </summary>
         /// <param name="propertyName">The property that was changed</param>
         protected void NotifyOfPropertyChanged(string propertyName)
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            if(parent == null)
+            {
+                parent = this;
+            }
+            PropertyChanged?.Invoke(parent, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

@@ -60,6 +60,7 @@ namespace PointOfSale
             InitializeComponent();
             this.combo = combo;
             this.drink = combo.Drink;
+            combo.Drink = drink;
             size = drink.Size;
             ButtonSetup();
         }
@@ -297,8 +298,7 @@ namespace PointOfSale
         /// <param name="args"></param>
         public void SelectHoldIce_Click(object sender, RoutedEventArgs args)
         {
-            drink.HoldIce();
-            UpdateCombo();
+            drink.HoldIce();            
         }
 
         /// <summary>
@@ -311,8 +311,7 @@ namespace PointOfSale
             if(drink is JurassicJava j)
             {
                 j.AddIce();                
-            }
-            UpdateCombo();
+            }            
         }
 
         /// <summary>
@@ -325,8 +324,7 @@ namespace PointOfSale
             if(drink is JurassicJava j)
             {
                 j.Decaf = true;                
-            }
-            UpdateCombo();
+            }            
         }
 
         /// <summary>
@@ -339,8 +337,7 @@ namespace PointOfSale
             if(drink is Tyrannotea t)
             {
                 t.Sweet = true;                
-            }
-            UpdateCombo();
+            }            
         }
 
         /// <summary>
@@ -357,8 +354,7 @@ namespace PointOfSale
             else if(drink is Tyrannotea t)
             {
                 t.AddLemon();
-            }
-            UpdateCombo();
+            }            
         }
 
         /// <summary>
@@ -375,8 +371,7 @@ namespace PointOfSale
                 {
                     drink.Size = size;
                 }                
-            }
-            UpdateCombo();
+            }            
         }
 
         /// <summary>

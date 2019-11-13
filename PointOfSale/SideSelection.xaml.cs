@@ -58,8 +58,9 @@ namespace PointOfSale
         public SideSelection(CretaceousCombo combo)
         {
             InitializeComponent();
-            this.combo = combo;            
+            this.combo = combo;
             this.side = combo.Side;
+            combo.Side = side;
             size = side.Size;
             InitializeSizeCheckButton();
         }
@@ -117,8 +118,7 @@ namespace PointOfSale
                 }                
                 else
                 {
-                    combo.Side = side;
-                    combo.NotifyOfAllPropertyChanges();
+                    combo.Side = side;                    
                 }
             }
         }
@@ -140,8 +140,7 @@ namespace PointOfSale
                 }
                 else
                 {
-                    combo.Side = side;
-                    combo.NotifyOfAllPropertyChanges();
+                    combo.Side = side;                    
                 }
             }
         }
@@ -163,8 +162,7 @@ namespace PointOfSale
                 }
                 else
                 {
-                    combo.Side = side;
-                    combo.NotifyOfAllPropertyChanges();
+                    combo.Side = side;                    
                 }                
             }
         }
@@ -186,8 +184,7 @@ namespace PointOfSale
                 }
                 else
                 {
-                    combo.Side = side;
-                    combo.NotifyOfAllPropertyChanges();
+                    combo.Side = side;                    
                 }
             }            
         }
@@ -204,11 +201,7 @@ namespace PointOfSale
                 size = (DDSize)Enum.Parse(typeof(DDSize), element.Tag.ToString());
                 if (side != null)
                 {
-                    side.Size = size;
-                    if (combo != null)
-                    {
-                        combo.NotifyOfAllPropertyChanges();
-                    }
+                    side.Size = size;                    
                 }                           
             }
         }

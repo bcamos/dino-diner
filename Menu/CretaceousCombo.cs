@@ -13,8 +13,8 @@ namespace DinoDiner.Menu
         // Backing Variables          
         private Entree entree;
         private Size size;
-        private Drink drink = new Sodasaurus();
-        private Side side = new Fryceritops();
+        private Drink drink;
+        private Side side;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -36,9 +36,10 @@ namespace DinoDiner.Menu
             {
                 return entree;
             }
-            protected set
+            set
             {
-                entree = value;                
+                entree = value;
+                entree.InitializeParent(this, PropertyChanged);
                 NotifyOfPropertyChanged("Entree");
                 NotifyOfAllPropertyChanges();
             }
@@ -57,11 +58,11 @@ namespace DinoDiner.Menu
             set
             {
                 side = value;
+                side.InitializeParent(this, PropertyChanged);
                 NotifyOfPropertyChanged("Side");
                 NotifyOfAllPropertyChanges();
             }
         }       
-
 
         /// <summary>
         /// Gets and sets the drink
@@ -75,6 +76,7 @@ namespace DinoDiner.Menu
             set
             {
                 drink = value;
+                drink.InitializeParent(this, PropertyChanged);
                 NotifyOfPropertyChanged("Drink");
                 NotifyOfAllPropertyChanges();
             }
@@ -165,8 +167,10 @@ namespace DinoDiner.Menu
         /// </summary>
         /// <param name="entree">The entree to use</param>
         public CretaceousCombo(Entree entree)
-        {
-            this.Entree = entree;
+        {            
+            Entree = entree;
+            Side = new Fryceritops();
+            Drink = new Sodasaurus();
         }
 
         /// <summary>

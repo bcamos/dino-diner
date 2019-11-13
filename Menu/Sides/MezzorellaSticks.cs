@@ -2,6 +2,7 @@
  * Author: Ben Amos
  */
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
@@ -64,7 +65,18 @@ namespace DinoDiner.Menu
         {
             Price = 0.99;
             Calories = 540;
+            ImagePath = "Images/DinoDiner-10.png";            
+        }
+
+        /// <summary>
+        /// Default constructor sets price, calories and ingredients
+        /// </summary>
+        public MezzorellaSticks(IOrderItem item, PropertyChangedEventHandler h)
+        {
+            Price = 0.99;
+            Calories = 540;
             ImagePath = "Images/DinoDiner-10.png";
+            InitializeParent(item, h);
         }
 
         /// <summary>
