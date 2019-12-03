@@ -84,6 +84,15 @@ namespace Website.Pages
                 Drinks = Menu.FilterByMaxPrice(Drinks, (float)maximumPrice);
                 Sides = Menu.FilterByMaxPrice(Sides, (float)maximumPrice);
             }
+
+            //Filter on ingredients
+            if(ingredient != null)
+            {
+                Combos = Menu.FilterByIngredients(Combos, ingredient);
+                Entrees = Menu.FilterByIngredients(Entrees, ingredient);
+                Drinks = Menu.FilterByIngredients(Drinks, ingredient);
+                Sides = Menu.FilterByIngredients(Sides, ingredient);
+            }            
         }
     }
 }

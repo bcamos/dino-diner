@@ -428,9 +428,112 @@ namespace DinoDiner.Menu
             return newList;
         }
 
+        /// <summary>
+        /// Filters all menu items out which contain any of the ingredients
+        /// </summary>
+        /// <param name="menuItems">The menu items to filter on</param>
+        /// <param name="ingredients">The ingredients to check</param>
+        /// <returns></returns>
         public static List<CretaceousCombo> FilterByIngredients(List<CretaceousCombo> menuItems, List<string> ingredients)
         {
-            return menuItems;
+            List<CretaceousCombo> newList = new List<CretaceousCombo>();
+            foreach(CretaceousCombo item in menuItems)
+            {
+                bool add = true;
+                foreach(string ingredient in ingredients)
+                {
+                    if(item.Ingredients.Contains(ingredient))
+                    {
+                        add = false;
+                    }
+                }
+                if(add)
+                {
+                    newList.Add(item);
+                }
+            }
+            return newList;
+        }
+
+        /// <summary>
+        /// Filters all menu items out which contain any of the ingredients
+        /// </summary>
+        /// <param name="menuItems">The menu items to filter on</param>
+        /// <param name="ingredients">The ingredients to check</param>
+        /// <returns></returns>
+        public static List<Entree> FilterByIngredients(List<Entree> menuItems, List<string> ingredients)
+        {
+            List<Entree> newList = new List<Entree>();
+            foreach (Entree item in menuItems)
+            {
+                bool add = true;
+                foreach (string ingredient in ingredients)
+                {
+                    if (item.Ingredients.Contains(ingredient))
+                    {
+                        add = false;
+                    }
+                }
+                if (add)
+                {
+                    newList.Add(item);
+                }
+            }
+            return newList;
+        }
+
+        /// <summary>
+        /// Filters all menu items out which contain any of the ingredients
+        /// </summary>
+        /// <param name="menuItems">The menu items to filter on</param>
+        /// <param name="ingredients">The ingredients to check</param>
+        /// <returns></returns>
+        public static List<Drink> FilterByIngredients(List<Drink> menuItems, List<string> ingredients)
+        {
+            List<Drink> newList = new List<Drink>();
+            foreach (Drink item in menuItems)
+            {
+                bool add = true;
+                foreach (string ingredient in ingredients)
+                {
+                    if (item.Ingredients.Contains(ingredient))
+                    {
+                        add = false;
+                    }
+                }
+                if (add)
+                {
+                    newList.Add(item);
+                }
+            }
+            return newList;
+        }
+
+        /// <summary>
+        /// Filters all menu items out which contain any of the ingredients
+        /// </summary>
+        /// <param name="menuItems">The menu items to filter on</param>
+        /// <param name="ingredients">The ingredients to check</param>
+        /// <returns></returns>
+        public static List<Side> FilterByIngredients(List<Side> menuItems, List<string> ingredients)
+        {
+            List<Side> newList = new List<Side>();
+            foreach (Side item in menuItems)
+            {
+                bool add = true;
+                foreach (string ingredient in ingredients)
+                {
+                    if (item.Ingredients.Contains(ingredient))
+                    {
+                        add = false;
+                    }
+                }
+                if (add)
+                {
+                    newList.Add(item);
+                }
+            }
+            return newList;
         }
     }
 }
