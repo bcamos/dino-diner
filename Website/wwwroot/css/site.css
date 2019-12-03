@@ -12,4 +12,13 @@ body {
     padding-right: 15px;
 }
 
+.content {
+    display: flex;
+    flex-direction: row;
+}
+
+.ingredient-checkbox {
+    display: flex;
+    flex-direction: column;
+}
 

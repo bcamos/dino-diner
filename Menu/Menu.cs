@@ -132,6 +132,48 @@ namespace DinoDiner.Menu
         }
 
         /// <summary>
+        /// Gets a list of all available ingredients in all menu items
+        /// </summary>
+        public List<string> AvailableIngredients
+        {
+            get
+            {
+                List<string> ingredients = new List<string>();
+                foreach(Entree entree in AvailableEntrees)
+                {
+                    foreach(string ingredient in entree.Ingredients)
+                    {
+                        if(!ingredients.Contains(ingredient))
+                        {
+                            ingredients.Add(ingredient);
+                        }
+                    }
+                }
+                foreach (Drink drink in AvailableDrinks)
+                {
+                    foreach (string ingredient in drink.Ingredients)
+                    {
+                        if (!ingredients.Contains(ingredient))
+                        {
+                            ingredients.Add(ingredient);
+                        }
+                    }
+                }
+                foreach (Side side in AvailableSides)
+                {
+                    foreach (string ingredient in side.Ingredients)
+                    {
+                        if (!ingredients.Contains(ingredient))
+                        {
+                            ingredients.Add(ingredient);
+                        }
+                    }
+                }
+                return ingredients;
+            }
+        }
+
+        /// <summary>
         /// Returns the names of all the menu items in the menu
         /// </summary>
         /// <returns>The names of all the menu items in the menu</returns>
@@ -144,6 +186,251 @@ namespace DinoDiner.Menu
                 menu += i.ToString() + "\n";
             }
             return menu;
+        }
+
+        /// <summary>
+        /// Filters a given list of menu items by the menu item's name
+        /// </summary>
+        /// <param name="menuItems">The list of items to filter</param>
+        /// <param name="search">the string to filter on</param>
+        /// <returns></returns>
+        public static List<CretaceousCombo> FilterByName(List<CretaceousCombo> menuItems, string search)
+        {
+            List<CretaceousCombo> newList = new List<CretaceousCombo>();
+            if(menuItems != null)
+            {
+                foreach (CretaceousCombo item in menuItems)
+                {
+                    if (item.ToString().Contains(search))
+                    {
+                        newList.Add(item);
+                    }
+                }
+            }            
+            return newList;
+        }
+
+        /// <summary>
+        /// Filters a given list of menu items by the menu item's name
+        /// </summary>
+        /// <param name="menuItems">The list of items to filter</param>
+        /// <param name="search">the string to filter on</param>
+        /// <returns></returns>
+        public static List<Entree> FilterByName(List<Entree> menuItems, string search)
+        {
+            List<Entree> newList = new List<Entree>();
+            if(menuItems != null)
+            {
+                foreach (Entree item in menuItems)
+                {
+                    if (item.ToString().Contains(search))
+                    {
+                        newList.Add(item);
+                    }
+                }
+            }            
+            return newList;
+        }
+
+        /// <summary>
+        /// Filters a given list of menu items by the menu item's name
+        /// </summary>
+        /// <param name="menuItems">The list of items to filter</param>
+        /// <param name="search">the string to filter on</param>
+        /// <returns></returns>
+        public static List<Drink> FilterByName(List<Drink> menuItems, string search)
+        {
+            List<Drink> newList = new List<Drink>();
+            if(menuItems != null)
+            {
+                foreach (Drink item in menuItems)
+                {
+                    if (item.ToString().Contains(search))
+                    {
+                        newList.Add(item);
+                    }
+                }
+            }            
+            return newList;
+        }
+
+        /// <summary>
+        /// Filters a given list of menu items by the menu item's name
+        /// </summary>
+        /// <param name="menuItems">The list of items to filter</param>
+        /// <param name="search">the string to filter on</param>
+        /// <returns></returns>
+        public static List<Side> FilterByName(List<Side> menuItems, string search)
+        {
+            List<Side> newList = new List<Side>();
+            if(menuItems != null)
+            {
+                foreach (Side item in menuItems)
+                {
+                    if (item.ToString().Contains(search))
+                    {
+                        newList.Add(item);
+                    }
+                }
+            }            
+            return newList;
+        }
+
+        /// <summary>
+        /// Filters list removing all items less than the minimum price
+        /// </summary>
+        /// <param name="menuItems">The list to filter on</param>
+        /// <param name="minPrice">The minumum price to filter on</param>
+        /// <returns></returns>
+        public static List<CretaceousCombo> FilterByMinPrice(List<CretaceousCombo> menuItems, float minPrice)
+        {
+            List<CretaceousCombo> newList = new List<CretaceousCombo>();
+            foreach(CretaceousCombo item in menuItems)
+            {
+                if(item.Price >= minPrice)
+                {
+                    newList.Add(item);
+                }
+            }
+            return newList;
+        }
+
+        /// <summary>
+        /// Filters list removing all items less than the minimum price
+        /// </summary>
+        /// <param name="menuItems">The list to filter on</param>
+        /// <param name="minPrice">The minumum price to filter on</param>
+        /// <returns></returns>
+        public static List<Entree> FilterByMinPrice(List<Entree> menuItems, float minPrice)
+        {
+            List<Entree> newList = new List<Entree>();
+            foreach (Entree item in menuItems)
+            {
+                if (item.Price >= minPrice)
+                {
+                    newList.Add(item);
+                }
+            }
+            return newList;
+        }
+
+        /// <summary>
+        /// Filters list removing all items less than the minimum price
+        /// </summary>
+        /// <param name="menuItems">The list to filter on</param>
+        /// <param name="minPrice">The minumum price to filter on</param>
+        /// <returns></returns>
+        public static List<Side> FilterByMinPrice(List<Side> menuItems, float minPrice)
+        {
+            List<Side> newList = new List<Side>();
+            foreach (Side item in menuItems)
+            {
+                if (item.Price >= minPrice)
+                {
+                    newList.Add(item);
+                }
+            }
+            return newList;
+        }
+
+        /// <summary>
+        /// Filters list removing all items less than the minimum price
+        /// </summary>
+        /// <param name="menuItems">The list to filter on</param>
+        /// <param name="minPrice">The minumum price to filter on</param>
+        /// <returns></returns>
+        public static List<Drink> FilterByMinPrice(List<Drink> menuItems, float minPrice)
+        {
+            List<Drink> newList = new List<Drink>();
+            foreach (Drink item in menuItems)
+            {
+                if (item.Price >= minPrice)
+                {
+                    newList.Add(item);
+                }
+            }
+            return newList;
+        }
+
+        /// <summary>
+        /// Filters list removing all items more than the minimum price
+        /// </summary>
+        /// <param name="menuItems">The list to filter on</param>
+        /// <param name="maxPrice">The maximum price to filter on</param>
+        /// <returns></returns>
+        public static List<CretaceousCombo> FilterByMaxPrice(List<CretaceousCombo> menuItems, float maxPrice)
+        {
+            List<CretaceousCombo> newList = new List<CretaceousCombo>();
+            foreach (CretaceousCombo item in menuItems)
+            {
+                if (item.Price <= maxPrice)
+                {
+                    newList.Add(item);
+                }
+            }
+            return newList;
+        }
+
+        /// <summary>
+        /// Filters list removing all items more than the minimum price
+        /// </summary>
+        /// <param name="menuItems">The list to filter on</param>
+        /// <param name="maxPrice">The maximum price to filter on</param>
+        /// <returns></returns>
+        public static List<Entree> FilterByMaxPrice(List<Entree> menuItems, float maxPrice)
+        {
+            List<Entree> newList = new List<Entree>();
+            foreach (Entree item in menuItems)
+            {
+                if (item.Price <= maxPrice)
+                {
+                    newList.Add(item);
+                }
+            }
+            return newList;
+        }
+
+        /// <summary>
+        /// Filters list removing all items more than the minimum price
+        /// </summary>
+        /// <param name="menuItems">The list to filter on</param>
+        /// <param name="maxPrice">The maximum price to filter on</param>
+        /// <returns></returns>
+        public static List<Side> FilterByMaxPrice(List<Side> menuItems, float maxPrice)
+        {
+            List<Side> newList = new List<Side>();
+            foreach (Side item in menuItems)
+            {
+                if (item.Price <= maxPrice)
+                {
+                    newList.Add(item);
+                }
+            }
+            return newList;
+        }
+
+        /// <summary>
+        /// Filters list removing all items more than the minimum price
+        /// </summary>
+        /// <param name="menuItems">The list to filter on</param>
+        /// <param name="maxPrice">The maximum price to filter on</param>
+        /// <returns></returns>
+        public static List<Drink> FilterByMaxPrice(List<Drink> menuItems, float maxPrice)
+        {
+            List<Drink> newList = new List<Drink>();
+            foreach (Drink item in menuItems)
+            {
+                if (item.Price <= maxPrice)
+                {
+                    newList.Add(item);
+                }
+            }
+            return newList;
+        }
+
+        public static List<CretaceousCombo> FilterByIngredients(List<CretaceousCombo> menuItems, List<string> ingredients)
+        {
+            return menuItems;
         }
     }
 }
