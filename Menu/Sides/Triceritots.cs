@@ -59,6 +59,17 @@ namespace DinoDiner.Menu
         }
 
         /// <summary>
+        /// returns the type of side
+        /// </summary>
+        public override string Type
+        {
+            get
+            {
+                return "Triceritots";
+            }
+        }
+
+        /// <summary>
         /// Default constructor sets price, calories, and ingredients
         /// </summary>
         /// <param name="size"></param>

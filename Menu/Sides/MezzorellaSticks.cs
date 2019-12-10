@@ -77,6 +77,17 @@ namespace DinoDiner.Menu
             Calories = 540;
             ImagePath = "Images/DinoDiner-10.png";
             InitializeParent(item, h);
+        }       
+
+        /// <summary>
+        /// returns the type of side
+        /// </summary>
+        public override string Type
+        {
+            get
+            {
+                return "Mezzorella Sticks";
+            }
         }
 
         /// <summary>

@@ -3,87 +3,152 @@
 @{
     ViewData["Title"] = "Menu";
 }
-
     <div class="content">
         <div class="menu">
             <h1>Menu</h1>
-            @if (Model.Combos.Count > 0)
+            @if (Model.Combos.Count() > 0)
             {
                 <h2>Combos</h2>
                 <div>
-                    @for (int i = 0; i < @Model.Combos.Count; i++)
+                    @foreach (DinoDiner.Menu.CretaceousCombo combo in Model.Combos)
                     {
                         <div class="menu-item">
-                            <strong>@Model.Combos[i]</strong>: $@Model.Combos[i].Price
-                            <br /> Calories: @Model.Combos[i].Calories
-                            <br /> Ingredients:
-                            @for (int j = 0; j < @Model.Combos[i].Ingredients.Count; j++)
+                            <strong>@combo</strong>
+                            <table border="1">
+                                <tr>
+                                    <th>Size</th>
+                                    <th>Price</th>
+                                    <th>Calories</th>
+                                </tr>
+                                <tr>
+                                    <th>Small</th>
+                                    <th>$@combo.Price</th>
+                                    <th>@combo.Calories</th>
+                                </tr>
+                                <tr>
+                                    <th>@(combo.Size = DinoDiner.Menu.Size.Medium)</th>
+                                    <th>$@combo.Price</th>
+                                    <th>@combo.Calories</th>
+                                </tr>
+                                <tr>
+                                    <th>@(combo.Size = DinoDiner.Menu.Size.Large)</th>
+                                    <th>$@combo.Price</th>
+                                    <th>@combo.Calories</th>
+                                </tr>
+                            </table>
+                            <p></p>
+                            <i>Ingredients:</i>                            
+                            @foreach(string ingredient in combo.Ingredients)
                             {
                                 <br />
-                                <i>@Model.Combos[i].Ingredients[j]</i>
+                                <i>@ingredient</i>
                             }
                             <p></p>
                         </div>
                     }
                 </div>
             }
-            @if (Model.Entrees.Count > 0)
+            @if (Model.Entrees.Count() > 0)
             {
                 <h2>Entrees</h2>
                 <div>
-                    @for (int i = 0; i < @Model.Entrees.Count; i++)
+                    @foreach(DinoDiner.Menu.Entree entree in Model.Entrees)
                     {
                         <div class="menu-item">
-                            <strong>@Model.Entrees[i]</strong>: $@Model.Entrees[i].Price
-                            <br /> Calories: @Model.Entrees[i].Calories
+                            <strong>@entree</strong>: $@entree.Price
+                            <br /> Calories: @entree.Calories
                             <br /> Ingredients:
-                            @for (int j = 0; j < @Model.Entrees[i].Ingredients.Count; j++)
+                            @foreach (string ingredient in entree.Ingredients)
                             {
                                 <br />
-                                <i>@Model.Entrees[i].Ingredients[j]</i>
+                                <i>@ingredient</i>
                             }
                             <p></p>
                         </div>
                     }
                 </div>
             }
-            @if (Model.Sides.Count > 0)
+            @if (Model.Sides.Count() > 0)
             {
                 <h2>Sides</h2>
                 <div>
-                    @for (int i = 0; i < @Model.Sides.Count; i++)
+                    @foreach(DinoDiner.Menu.Side side in Model.Sides)
                     {
-                        <div class="menu-item">
-                            <strong>@Model.Sides[i]</strong>: $@Model.Sides[i].Price
-                            <br /> Calories: @Model.Sides[i].Calories
-                            <br /> Ingredients:
-                            @for (int j = 0; j < @Model.Sides[i].Ingredients.Count; j++)
-                            {
-                                <br />
-                                <i>@Model.Sides[i].Ingredients[j]</i>
-                            }
-                            <p></p>
-                        </div>
+                    <div class="menu-item">
+                        <strong>@side.Type</strong>
+                        <table border="1">
+                            <tr>
+                                <th>Size</th>
+                                <th>Price</th>
+                                <th>Calories</th>
+                            </tr>
+                            <tr>
+                                <th>Small</th>
+                                <th>$@side.Price</th>
+                                <th>@side.Calories</th>
+                            </tr>
+                            <tr>
+                                <th>@(side.Size = DinoDiner.Menu.Size.Medium)</th>
+                                <th>$@side.Price</th>
+                                <th>@side.Calories</th>
+                            </tr>
+                            <tr>
+                                <th>@(side.Size = DinoDiner.Menu.Size.Large)</th>
+                                <th>$@side.Price</th>
+                                <th>@side.Calories</th>
+                            </tr>
+                        </table>
+                        <p></p>
+                        <i>Ingredients:</i>                        
+                        @foreach (string ingredient in side.Ingredients)
+                        {
+                            <br />
+                            <i>@ingredient</i>
+                        }
+                        <p></p>
+                    </div>
                     }
                 </div>
             }
-            @if (Model.Drinks.Count > 0)
+            @if (Model.Drinks.Count() > 0)
             {
                 <h2>Drinks</h2>
                 <div>
-                    @for (int i = 0; i < @Model.Drinks.Count; i++)
+                    @foreach(DinoDiner.Menu.Drink drink in Model.Drinks)
                     {
-                        <div class="menu-item">
-                            <strong>@Model.Drinks[i]</strong>: $@Model.Drinks[i].Price
-                            <br /> Calories: @Model.Drinks[i].Calories
-                            <br /> Ingredients:
-                            @for (int j = 0; j < @Model.Drinks[i].Ingredients.Count; j++)
-                            {
-                                <br />
-                                <i>@Model.Drinks[i].Ingredients[j]</i>
-                            }
-                            <p></p>
-                        </div>
+                    <div class="menu-item">
+                        <strong>@drink.Type</strong>
+                        <table border="1">
+                            <tr>
+                                <th>Size</th>
+                                <th>Price</th>
+                                <th>Calories</th>
+                            </tr>
+                            <tr>
+                                <th>Small</th>
+                                <th>$@drink.Price</th>
+                                <th>@drink.Calories</th>
+                            </tr>
+                            <tr>
+                                <th>@(drink.Size = DinoDiner.Menu.Size.Medium)</th>
+                                <th>$@drink.Price</th>
+                                <th>@drink.Calories</th>
+                            </tr>
+                            <tr>
+                                <th>@(drink.Size = DinoDiner.Menu.Size.Large)</th>
+                                <th>$@drink.Price</th>
+                                <th>@drink.Calories</th>
+                            </tr>
+                        </table>
+                        <p></p>
+                        <i>Ingredients:</i>                        
+                        @foreach (string ingredient in drink.Ingredients)
+                        {
+                            <br />
+                            <i>@ingredient</i>
+                        }
+                        <p></p>
+                    </div>
                     }
                 </div>
             }

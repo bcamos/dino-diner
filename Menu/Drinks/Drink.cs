@@ -70,6 +70,11 @@ namespace DinoDiner.Menu
         public abstract string[] Special { get; }
 
         /// <summary>
+        /// The type of drink
+        /// </summary>
+        public abstract string Type { get; }
+
+        /// <summary>
         /// Whether the drink has ice in it or not
         /// </summary>
         public bool Ice { get; set; } = true;

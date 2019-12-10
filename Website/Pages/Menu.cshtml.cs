@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using DinoDiner.Menu;
+using System.Linq;
 
 namespace Website.Pages
 {
@@ -12,13 +13,13 @@ namespace Website.Pages
     {
         public Menu Menu { get; set; }
 
-        public List<CretaceousCombo> Combos { get; set; }
+        public IEnumerable<CretaceousCombo> Combos { get; set; }
 
-        public List<Entree> Entrees { get; set; }
+        public IEnumerable<Entree> Entrees { get; set; }
 
-        public List<Drink> Drinks { get; set; }
+        public IEnumerable<Drink> Drinks { get; set; }
 
-        public List<Side> Sides { get; set; }
+        public IEnumerable<Side> Sides { get; set; }
 
         public void OnGet()
         {
@@ -40,10 +41,10 @@ namespace Website.Pages
             //Filter on name
             if (search != null)
             {
-                Combos = Menu.FilterByName(Combos, search);
-                Entrees = Menu.FilterByName(Entrees, search);
-                Drinks = Menu.FilterByName(Drinks, search);
-                Sides = Menu.FilterByName(Sides, search);
+                Combos = Combos.Where(combo => combo.ToString().Contains(search));
+                Entrees = Entrees.Where(entree => entree.ToString().Contains(search));
+                Drinks = Drinks.Where(drink => drink.ToString().Contains(search));
+                Sides = Sides.Where(side => side.ToString().Contains(search));
             }
 
             //Filter on category
@@ -68,31 +69,31 @@ namespace Website.Pages
             }
 
             //Filter on min price
-            if(minimumPrice != null)
+            if (minimumPrice != null)
             {
-                Combos = Menu.FilterByMinPrice(Combos, (float)minimumPrice);
-                Entrees = Menu.FilterByMinPrice(Entrees, (float)minimumPrice);
-                Drinks = Menu.FilterByMinPrice(Drinks, (float)minimumPrice);
-                Sides = Menu.FilterByMinPrice(Sides, (float)minimumPrice);
+                Combos = Combos.Where(combo => combo.Price >= minimumPrice);
+                Entrees = Entrees.Where(entree => entree.Price >= minimumPrice);
+                Drinks = Drinks.Where(drink => drink.Price >= minimumPrice);
+                Sides = Sides.Where(side => side.Price >= minimumPrice);
             }
 
             //Filter on max price
             if (maximumPrice != null)
             {
-                Combos = Menu.FilterByMaxPrice(Combos, (float)maximumPrice);
-                Entrees = Menu.FilterByMaxPrice(Entrees, (float)maximumPrice);
-                Drinks = Menu.FilterByMaxPrice(Drinks, (float)maximumPrice);
-                Sides = Menu.FilterByMaxPrice(Sides, (float)maximumPrice);
+                Combos = Combos.Where(combo => combo.Price <= maximumPrice);
+                Entrees = Entrees.Where(entree => entree.Price <= maximumPrice);
+                Drinks = Drinks.Where(drink => drink.Price <= maximumPrice);
+                Sides = Sides.Where(side => side.Price <= maximumPrice);
             }
 
             //Filter on ingredients
-            if(ingredient != null)
+            if (ingredient != null)
             {
-                Combos = Menu.FilterByIngredients(Combos, ingredient);
-                Entrees = Menu.FilterByIngredients(Entrees, ingredient);
-                Drinks = Menu.FilterByIngredients(Drinks, ingredient);
-                Sides = Menu.FilterByIngredients(Sides, ingredient);
-            }            
+                Combos = Combos.Where(combo => combo.Ingredients.Where(ingred => ingredient.Contains(ingred)).Count() == 0);
+                Entrees = Entrees.Where(entree => entree.Ingredients.Where(ingred => ingredient.Contains(ingred)).Count() == 0);
+                Drinks = Drinks.Where(drink => drink.Ingredients.Where(ingred => ingredient.Contains(ingred)).Count() == 0);
+                Sides = Sides.Where(side => side.Ingredients.Where(ingred => ingredient.Contains(ingred)).Count() == 0);
+            }
         }
     }
 }

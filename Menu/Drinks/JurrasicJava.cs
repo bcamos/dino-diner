@@ -100,7 +100,18 @@ namespace DinoDiner.Menu
                 return specials.ToArray();
             }
         }
-        
+
+        /// <summary>
+        /// returns the type of drink
+        /// </summary>
+        public override string Type
+        {
+            get
+            {
+                return "Jurrasic Java";
+            }
+        }
+
 
         /// <summary>
         /// Default constructor sets coffee to small

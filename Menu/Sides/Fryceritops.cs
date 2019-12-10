@@ -60,6 +60,17 @@ namespace DinoDiner.Menu
         }
 
         /// <summary>
+        /// returns the type of side
+        /// </summary>
+        public override string Type
+        {
+            get
+            {
+                return "Fryceritops";
+            }
+        }
+
+        /// <summary>
         /// Default constructor initializes price, calories, and ingredients
         /// </summary>
         public Fryceritops()

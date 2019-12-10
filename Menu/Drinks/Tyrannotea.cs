@@ -102,6 +102,17 @@ namespace DinoDiner.Menu
         }
 
         /// <summary>
+        /// returns the type of drink
+        /// </summary>
+        public override string Type
+        {
+            get
+            {
+                return "Tyrannotea";
+            }
+        }
+
+        /// <summary>
         /// An array of all the special accomodations to this tyrannotea order
         /// </summary>
         public override string[] Special

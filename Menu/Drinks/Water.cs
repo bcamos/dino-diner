@@ -45,6 +45,17 @@ namespace DinoDiner.Menu
         }
 
         /// <summary>
+        /// returns the type of drink
+        /// </summary>
+        public override string Type
+        {
+            get
+            {
+                return "Jurrasic Java";
+            }
+        }
+
+        /// <summary>
         /// Default constructor sets price, calories, and size to small
         /// </summary>
         public Water()

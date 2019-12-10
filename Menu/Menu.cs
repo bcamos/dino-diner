@@ -4,6 +4,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
 
 namespace DinoDiner.Menu
 {
@@ -194,20 +195,9 @@ namespace DinoDiner.Menu
         /// <param name="menuItems">The list of items to filter</param>
         /// <param name="search">the string to filter on</param>
         /// <returns></returns>
-        public static List<CretaceousCombo> FilterByName(List<CretaceousCombo> menuItems, string search)
+        public static IEnumerable<CretaceousCombo> FilterByName(List<CretaceousCombo> menuItems, string search)
         {
-            List<CretaceousCombo> newList = new List<CretaceousCombo>();
-            if(menuItems != null)
-            {
-                foreach (CretaceousCombo item in menuItems)
-                {
-                    if (item.ToString().Contains(search))
-                    {
-                        newList.Add(item);
-                    }
-                }
-            }            
-            return newList;
+            return menuItems.Where(item => item.ToString().Contains(search));
         }
 
         /// <summary>
@@ -216,20 +206,9 @@ namespace DinoDiner.Menu
         /// <param name="menuItems">The list of items to filter</param>
         /// <param name="search">the string to filter on</param>
         /// <returns></returns>
-        public static List<Entree> FilterByName(List<Entree> menuItems, string search)
+        public static IEnumerable<Entree> FilterByName(List<Entree> menuItems, string search)
         {
-            List<Entree> newList = new List<Entree>();
-            if(menuItems != null)
-            {
-                foreach (Entree item in menuItems)
-                {
-                    if (item.ToString().Contains(search))
-                    {
-                        newList.Add(item);
-                    }
-                }
-            }            
-            return newList;
+            return menuItems.Where(item => item.ToString().Contains(search));
         }
 
         /// <summary>
@@ -238,20 +217,9 @@ namespace DinoDiner.Menu
         /// <param name="menuItems">The list of items to filter</param>
         /// <param name="search">the string to filter on</param>
         /// <returns></returns>
-        public static List<Drink> FilterByName(List<Drink> menuItems, string search)
+        public static IEnumerable<Drink> FilterByName(List<Drink> menuItems, string search)
         {
-            List<Drink> newList = new List<Drink>();
-            if(menuItems != null)
-            {
-                foreach (Drink item in menuItems)
-                {
-                    if (item.ToString().Contains(search))
-                    {
-                        newList.Add(item);
-                    }
-                }
-            }            
-            return newList;
+            return menuItems.Where(item => item.ToString().Contains(search));
         }
 
         /// <summary>
@@ -260,20 +228,9 @@ namespace DinoDiner.Menu
         /// <param name="menuItems">The list of items to filter</param>
         /// <param name="search">the string to filter on</param>
         /// <returns></returns>
-        public static List<Side> FilterByName(List<Side> menuItems, string search)
+        public static IEnumerable<Side> FilterByName(List<Side> menuItems, string search)
         {
-            List<Side> newList = new List<Side>();
-            if(menuItems != null)
-            {
-                foreach (Side item in menuItems)
-                {
-                    if (item.ToString().Contains(search))
-                    {
-                        newList.Add(item);
-                    }
-                }
-            }            
-            return newList;
+            return menuItems.Where(item => item.ToString().Contains(search));
         }
 
         /// <summary>

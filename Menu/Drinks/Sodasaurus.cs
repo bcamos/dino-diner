@@ -90,7 +90,18 @@ namespace DinoDiner.Menu
             {
                 return new List<string>() { "Water", "Natural Flavors", "Cane Sugar" };
             }
-        }  
+        }
+
+        /// <summary>
+        /// returns the type of drink
+        /// </summary>
+        public override string Type
+        {
+            get
+            {
+                return "Sodasaurus";
+            }
+        }
 
         /// <summary>
         /// Default constructor sets soda to small

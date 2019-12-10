@@ -56,6 +56,11 @@ namespace DinoDiner.Menu
         }
 
         /// <summary>
+        /// The type of side
+        /// </summary>
+        public abstract string Type { get; }
+
+        /// <summary>
         /// Gets or sets the size
         /// </summary>
         public abstract Size Size { get; set; }
